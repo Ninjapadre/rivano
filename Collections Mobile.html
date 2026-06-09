@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-542NRLV2');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rivano Stone — Collections (Mobile)</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2315110F'/%3E%3Ctext x='32' y='34' font-family='Georgia,serif' font-size='40' fill='%23BFA46A' text-anchor='middle' dominant-baseline='central'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F5EFE4;
+    --soft-black: #15110F;
+    --gold: #BFA46A;
+    --terra: #B0703E;
+    --serif: "Cormorant Garamond", "Times New Roman", serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: var(--sans); color: var(--ivory); background: #0b0908;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    display: flex; justify-content: center; min-height: 100vh; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; }
+
+  .device { position: relative; width: 100%; max-width: 430px; min-height: 100vh;
+    background: var(--soft-black); overflow: hidden; isolation: isolate; }
+  @media (min-width: 480px) {
+    body { align-items: center; padding: 28px 0;
+      background: radial-gradient(120% 80% at 50% 0%, #161210 0%, #0b0908 70%); }
+    .device { min-height: auto; height: min(900px, calc(100vh - 56px)); border-radius: 30px;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.05);
+      overflow-y: auto; scrollbar-width: none; }
+    .device::-webkit-scrollbar { display: none; }
+  }
+
+  /* ===== TOP BAR ===== */
+  .col-top { position: absolute; top: 0; left: 0; right: 0; z-index: 6;
+    display: flex; align-items: center; justify-content: space-between; padding: 20px 18px; }
+  .hicon { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+    border: 1px solid rgba(245,239,228,0.42); background: rgba(20,15,12,0.2); backdrop-filter: blur(3px);
+    color: var(--ivory); cursor: pointer; transition: border-color .25s ease, background .25s ease; }
+  .hicon:hover { border-color: var(--gold); }
+  .hicon svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.4; }
+  .col-brand { font-family: var(--serif); font-weight: 500; font-size: 16px; letter-spacing: 0.22em;
+    text-indent: 0.22em; white-space: nowrap; text-shadow: 0 1px 14px rgba(12,9,8,0.6); }
+
+  /* ===== HERO ===== */
+  .col-hero { position: relative; height: 62vh; min-height: 440px; max-height: 600px;
+    overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
+  @media (min-width: 480px) { .col-hero { height: 540px; } }
+  .col-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .col-hero-scrim { position: absolute; inset: 0;
+    background:
+      linear-gradient(108deg, rgba(21,17,15,0.92) 0%, rgba(21,17,15,0.6) 38%, rgba(21,17,15,0.08) 72%),
+      linear-gradient(to top, rgba(17,13,11,0.92) 0%, rgba(17,13,11,0.1) 42%); }
+  .col-hero-body { position: relative; z-index: 2; padding: 0 22px 38px; }
+  .col-eyebrow { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin: 0 0 16px; }
+  .col-h1 { font-family: var(--serif); font-weight: 300; font-size: 38px; line-height: 1.06;
+    letter-spacing: -0.01em; margin: 0; color: var(--ivory); text-shadow: 0 2px 24px rgba(12,9,8,0.6); }
+  .col-hrule { width: 48px; height: 1px; background: var(--gold); opacity: 0.8; margin: 22px 0; }
+  .col-lead { font-size: 14px; font-weight: 300; line-height: 1.66; color: rgba(245,239,228,0.8);
+    margin: 0; max-width: 340px; }
+  .col-cta { display: flex; gap: 8px; margin-top: 26px; align-items: stretch; }
+  .col-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 0;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+    padding: 15px 15px; transition: background .25s ease, border-color .25s ease, transform .15s ease; }
+  .col-btn:active { transform: scale(0.98); }
+  .col-btn.solid { background: var(--terra); color: var(--ivory); white-space: nowrap; }
+  .col-btn.ghost { flex: 1; border: 1px solid rgba(245,239,228,0.42); color: var(--ivory); white-space: nowrap; }
+  .col-btn svg { width: 13px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.6; flex: 0 0 auto; }
+
+  /* ===== APPLICATIONS ===== */
+  .col-apps { background: var(--soft-black); padding: 42px 20px 12px; }
+  .col-apps-eyebrow { font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin: 0; }
+  .col-list { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+  .col-card { position: relative; display: block; height: 190px; border-radius: 6px;
+    overflow: hidden; background: #19140f; transition: transform .15s ease; }
+  .col-card:active { transform: scale(0.99); }
+  .col-card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .col-card-scrim { position: absolute; inset: 0;
+    background: linear-gradient(100deg, rgba(12,10,9,0.96) 0%, rgba(12,10,9,0.88) 28%, rgba(12,10,9,0.4) 54%, rgba(12,10,9,0.04) 82%); }
+  .col-card-text { position: absolute; left: 0; top: 0; bottom: 0; width: 78%;
+    display: flex; flex-direction: column; justify-content: center; padding: 0 20px; }
+  .cc-num { font-size: 12px; letter-spacing: 0.28em; color: rgba(245,239,228,0.5); font-variant-numeric: tabular-nums; }
+  .cc-title { font-family: var(--serif); font-weight: 400; font-size: 27px; line-height: 1.04;
+    color: var(--ivory); margin: 14px 0 0; }
+  .cc-tag { font-size: 13px; font-weight: 300; color: rgba(245,239,228,0.62); margin-top: 12px; line-height: 1.4; }
+
+  /* ===== FIXED COLLECTION ARROW (bottom-right FAB) ===== */
+  .col-next { position: fixed; bottom: calc(22px + env(safe-area-inset-bottom));
+    right: 16px; top: auto; transform: none;
+    z-index: 60; display: flex; flex-direction: column; align-items: center; gap: 8px;
+    background: none; border: 0; cursor: pointer; padding: 0; }
+  .col-next-circle { width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center;
+    border: 1px solid rgba(191,164,106,0.6); background: rgba(12,10,9,0.55);
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); color: var(--gold);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45); transition: background .25s ease, border-color .25s ease, transform .2s ease; }
+  .col-next:active .col-next-circle { transform: scale(0.94); background: rgba(191,164,106,0.16); }
+  .col-next-circle svg { width: 19px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.7; }
+  .col-next-label { font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; line-height: 1.5;
+    color: rgba(245,239,228,0.7); text-align: center; max-width: 70px; order: -1;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85); }
+  .col-next-label b { display: block; color: var(--ivory); font-weight: 500; font-size: 9px; }
+
+  /* ===== FOOTER ===== */
+  .footer { position: relative; z-index: 4; background: #17120e;
+    padding: 46px 20px calc(30px + env(safe-area-inset-bottom)); }
+  .ft-cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px 24px; }
+  .ft-h { font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ivory); font-weight: 500; margin: 0; }
+  .ft-h::after { content: ""; display: block; width: 26px; height: 1px; background: var(--gold); margin-top: 10px; }
+  .ft-links { display: flex; flex-direction: column; gap: 13px; margin-top: 18px; }
+  .ft-links a { font-size: 12.5px; font-weight: 300; color: rgba(245,239,228,0.74); transition: color .2s ease; }
+  .ft-links a:active { color: var(--gold); }
+  .ft-divider { height: 1px; background: rgba(245,239,228,0.1); margin: 36px 0; }
+  .ft-contact { display: flex; flex-direction: column; gap: 24px; }
+  .ft-c { display: flex; align-items: center; gap: 16px; }
+  .ft-c-icon { flex: 0 0 auto; width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center;
+    border: 1px solid rgba(191,164,106,0.55); color: var(--gold); }
+  .ft-c-icon svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.4; }
+  .ft-c-text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .ft-c-text .v { font-size: 15px; font-weight: 400; color: var(--ivory); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ft-c-text .l { font-size: 12px; font-weight: 300; color: rgba(245,239,228,0.5); }
+  .ft-bottom { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+  .ft-copy { font-size: 12px; font-weight: 300; color: rgba(245,239,228,0.5); }
+  .ft-legal { display: flex; align-items: center; justify-content: center; gap: 14px; font-size: 12.5px; font-weight: 300; }
+  .ft-legal a { color: rgba(245,239,228,0.62); white-space: nowrap; transition: color .2s ease; }
+  .ft-legal .sep { width: 1px; height: 12px; background: rgba(245,239,228,0.22); }
+  .ft-follow { display: flex; align-items: center; gap: 14px; }
+  .ft-follow span { font-size: 12.5px; font-weight: 300; color: rgba(245,239,228,0.62); }
+  .ft-follow a { width: 38px; height: 38px; border-radius: 9px; display: grid; place-items: center;
+    border: 1px solid rgba(245,239,228,0.3); color: var(--ivory); }
+  .ft-follow svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+  /* ===== MENU ===== */
+  .menu { position: fixed; inset: 0; z-index: 100; background: #0c0a09;
+    backdrop-filter: blur(6px); display: flex; flex-direction: column; padding: 24px 22px;
+    opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s ease; }
+  .menu.open { opacity: 1; visibility: visible; }
+  .menu-top { display: flex; align-items: center; justify-content: space-between; }
+  .menu-brand { font-family: var(--serif); white-space: nowrap; font-size: 16px; font-weight: 500; letter-spacing: 0.26em; text-indent: 0.26em; }
+  .menu-links { display: flex; flex-direction: column; gap: 4px; margin-top: 48px; }
+  .menu-links a { font-family: var(--serif); font-size: 34px; font-weight: 400; color: var(--ivory);
+    padding: 12px 0; border-bottom: 1px solid rgba(245,239,228,0.08); transition: color .2s ease; }
+  .menu-links a:active { color: var(--gold); }
+  .menu-actions { margin-top: auto; display: flex; flex-direction: column; gap: 12px; padding-top: 30px; }
+  .menu-btn { display: flex; align-items: center; justify-content: space-between; padding: 17px 22px;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .menu-btn.solid { background: var(--terra); color: var(--ivory); }
+  .menu-btn.ghost { border: 1px solid rgba(191,164,106,0.55); color: var(--ivory); }
+  .menu-btn svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 1.4; }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript style="display:none;"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-542NRLV2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  <div class="device">
+
+    <!-- TOP BAR -->
+    <header class="col-top">
+      <button class="hicon" id="menuOpen" type="button" aria-label="Open menu">
+        <svg viewBox="0 0 24 24"><path d="M4 7 H20 M4 12 H20 M4 17 H20" stroke-linecap="round"></path></svg>
+      </button>
+      <span class="col-brand">RIVANO STONE</span>
+      <a class="hicon" href="Mobile%20Hero.html" aria-label="Home">
+        <svg viewBox="0 0 24 24"><path d="M4 11 L12 4 L20 11 M6 9.5 V20 H18 V9.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </a>
+    </header>
+
+    <!-- RENDERED COLLECTION -->
+    <main id="view" data-screen-label="Collection (mobile)"></main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="ft-cols">
+        <div class="ft-col">
+          <h3 class="ft-h">Collections</h3>
+          <nav class="ft-links">
+            <a href="Collections%20Mobile.html#travertine">Travertine</a>
+            <a href="Collections%20Mobile.html#limestone">Limestone</a>
+            <a href="Collections%20Mobile.html#marble">Marble</a>
+            <a href="Collections%20Mobile.html#quartzite">Quartzite</a>
+            <a href="Collections%20Mobile.html#volcanic-stone">Volcanic Stone</a>
+          </nav>
+        </div>
+        <div class="ft-col">
+          <h3 class="ft-h">Applications</h3>
+          <nav class="ft-links">
+            <a href="Collections%20Mobile.html#travertine">Terraces</a>
+            <a href="Collections%20Mobile.html#marble">Bathrooms</a>
+            <a href="Collections%20Mobile.html#limestone">Wall Cladding</a>
+            <a href="Collections%20Mobile.html#volcanic-stone">Pool Surround</a>
+          </nav>
+        </div>
+      </div>
+      <div class="ft-divider"></div>
+      <div class="ft-contact">
+        <a class="ft-c" href="https://wa.me/6281359496795">
+          <span class="ft-c-icon"><svg viewBox="0 0 24 24"><path d="M5 4 h3.5 l1.5 4 -2 1.5 a11 11 0 0 0 5 5 l1.5 -2 4 1.5 V21 a1.5 1.5 0 0 1 -1.7 1.5 A16 16 0 0 1 3.5 6.7 A1.5 1.5 0 0 1 5 4 Z" stroke-linejoin="round"></path></svg></span>
+          <span class="ft-c-text"><span class="v">+62 813 5949 6795</span><span class="l">WhatsApp</span></span>
+        </a>
+        <a class="ft-c" href="mailto:info@rivanostone.id">
+          <span class="ft-c-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="1.5"></rect><path d="M3.5 7 L12 13 L20.5 7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          <span class="ft-c-text"><span class="v">info@rivanostone.id</span><span class="l">Email</span></span>
+        </a>
+        <a class="ft-c" href="https://maps.google.com/?q=Bali,Indonesia">
+          <span class="ft-c-icon"><svg viewBox="0 0 24 24"><path d="M12 22 C12 22 19 15.5 19 9.5 A7 7 0 0 0 5 9.5 C5 15.5 12 22 12 22 Z" stroke-linejoin="round"></path><circle cx="12" cy="9.5" r="2.6"></circle></svg></span>
+          <span class="ft-c-text"><span class="v">Bali, Indonesia</span><span class="l">Location</span></span>
+        </a>
+      </div>
+      <div class="ft-divider"></div>
+      <div class="ft-bottom">
+        <span class="ft-copy">© 2026 Rivano Stone. All rights reserved.</span>
+        <nav class="ft-legal">
+          <a href="index.html">Privacy Policy</a>
+          <span class="sep"></span>
+          <a href="index.html">Terms &amp; Conditions</a>
+        </nav>
+        <div class="ft-follow">
+          <span>Follow Us</span>
+          <a href="https://instagram.com/rivano.stone" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"></circle></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- FIXED COLLECTION ARROW -->
+    <button class="col-next" id="colNext" type="button" aria-label="Next collection">
+      <span class="col-next-circle">
+        <svg viewBox="0 0 24 18"><path d="M3 9 H20 M14 2 l7 7 -7 7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </span>
+      <span class="col-next-label">Next<b id="nextName">Limestone</b></span>
+    </button>
+
+    <!-- MENU -->
+    <nav class="menu" id="menu">
+      <div class="menu-top">
+        <span class="menu-brand">RIVANO STONE</span>
+        <button class="hicon" id="menuClose" type="button" aria-label="Close menu">
+          <svg viewBox="0 0 24 24"><path d="M6 6 L18 18 M18 6 L6 18" stroke-linecap="round"></path></svg>
+        </button>
+      </div>
+      <div class="menu-links">
+        <a href="Collections%20Mobile.html">Collections</a>
+        <a href="showroom.html#mobile">Showroom</a>
+      </div>
+      <div class="menu-actions">
+        <a class="menu-btn solid" href="Request%20Sample%20Mobile.html">Request Sample
+          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="12" height="12" rx="1"></rect><rect x="9" y="9" width="11" height="11" rx="1"></rect></svg>
+        </a>
+        <a class="menu-btn ghost" href="https://www.dropbox.com/scl/fi/5fkphhehdx23qnxv3uo75/catalogue-compressed.pdf?rlkey=t4ggirzc0du67j0s6r1fra849&amp;dl=1" target="_blank" rel="noopener">Get Catalogue
+          <svg viewBox="0 0 24 24"><path d="M12 4 V15 M7 11 l5 5 5 -5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5 20 H19" stroke-linecap="round"></path></svg>
+        </a>
+      </div>
+    </nav>
+
+  </div>
+
+  <script>
+    var CATALOGUE = 'https://www.dropbox.com/scl/fi/5fkphhehdx23qnxv3uo75/catalogue-compressed.pdf?rlkey=t4ggirzc0du67j0s6r1fra849&dl=1';
+    var WA = 'https://wa.me/6281359496795?text=';
+
+    var STONES = [
+      { id:'travertine', name:'Travertine', page:'travertine.html',
+        title:'Timeless texture.<br>Naturally elegant.',
+        lead:'Perfect for villas, resorts and architectural spaces, travertine brings warmth and tactile character to every surface it shapes.',
+        hero:'assets/web/travertine.jpg', sample:'Travertine',
+        apps:[
+          { n:'01', t:'Terraces',      tag:'Warm. Durable. Timeless.',        img:'assets/web/travertine-terraces.jpg' },
+          { n:'02', t:'Bathrooms',     tag:'Refined. Serene. Natural.',       img:'assets/web/travertine-bathrooms.jpg' },
+          { n:'03', t:'Wall Cladding', tag:'Textured. Elegant. Timeless.',    img:'assets/web/travertine-wall-cladding.jpg' },
+          { n:'04', t:'Landscaping',   tag:'Harmonious. Natural. Lasting.',   img:'assets/web/travertine-landscaping.jpg' }
+        ] },
+      { id:'limestone', name:'Limestone', page:'limestone.html',
+        title:'Subtle tones.<br>Enduring calm.',
+        lead:'Subtle tones and refined finishes give limestone a calm, enduring aesthetic — a quiet sophistication that settles into any space.',
+        hero:'assets/web/limestone.jpg', sample:'Limestone',
+        apps:[
+          { n:'01', t:'Terraces',      tag:'Refined. Durable. Modern.',       img:'assets/web/limestone-terraces.jpg' },
+          { n:'02', t:'Bathrooms',     tag:'Soft. Warm. Serene.',             img:'assets/web/limestone-bathrooms.jpg' },
+          { n:'03', t:'Wall Cladding', tag:'Deep. Elegant. Enduring.',        img:'assets/web/limestone-wall-cladding.jpg' },
+          { n:'04', t:'Landscaping',   tag:'Authentic. Harmonious. Natural.', img:'assets/web/limestone-landscaping.jpg' }
+        ] },
+      { id:'marble', name:'Marble', page:'marble.html',
+        title:'Timeless beauty.<br>Natural perfection.',
+        lead:'Marble brings sophistication and enduring beauty to the heart of the home. Each slab is a natural masterpiece, unique in character.',
+        hero:'assets/web/marble.jpg', sample:'Marble',
+        apps:[
+          { n:'01', t:'Kitchen Islands',  tag:'Sculptural. Deep. Singular.',   img:'assets/web/marble-kitchen-islands.jpg' },
+          { n:'02', t:'Countertops',      tag:'Cool. Tactile. Enduring.',      img:'assets/web/marble-countertops.jpg' },
+          { n:'03', t:'Bathrooms',        tag:'Soft. Reflective. Calm.',       img:'assets/web/marble-bathrooms.jpg' },
+          { n:'04', t:'Feature Walls',    tag:'Bookmatched. Artful. Bold.',    img:'assets/web/marble-feature-walls.jpg' },
+          { n:'05', t:'Luxury Interiors', tag:'Timeless. Sophisticated. Quiet.', img:'assets/web/marble-luxury-interiors.jpg' }
+        ] },
+      { id:'quartzite', name:'Quartzite', page:'quartzite.html',
+        title:'Strong by nature.<br>Naturally striking.',
+        lead:'Strong, durable and naturally striking in every detail, quartzite pairs exceptional resilience with the cool elegance of grey veining.',
+        hero:'assets/web/quartzite.jpg', sample:'Quartzite',
+        apps:[
+          { n:'01', t:'Pools',       tag:'Subtle. Deep. Reflective.',     img:'assets/web/quartzite-pools.jpg' },
+          { n:'02', t:'Pool Coping', tag:'Defined. Durable. Seamless.',   img:'assets/web/quartzite-pool-surrounds.jpg' },
+          { n:'03', t:'Terraces',    tag:'Soft. Refined. Contemporary.',  img:'assets/web/quartzite-terraces.jpg' }
+        ] },
+      { id:'volcanic-stone', name:'Volcanic Stone', page:'volcanic-stone.html',
+        title:'Raw beauty.<br>Organic character.',
+        lead:'Raw beauty and organic character rooted in volcanic origins — bold texture and authentic depth for contemporary architecture.',
+        hero:'assets/web/volcanic-stone.jpg', sample:'Volcanic Stone',
+        apps:[
+          { n:'01', t:'Pool Surrounds', tag:'Textured. Slip resistant. Durable.', img:'assets/web/volcanic-stone-pool-surrounds.jpg' },
+          { n:'02', t:'Terraces',       tag:'Rich. Authentic. Bold.',             img:'assets/web/volcanic-stone-terraces.jpg' },
+          { n:'03', t:'Pathways',       tag:'Structured. Characterful. Elegant.', img:'assets/web/volcanic-stone-pathways.jpg' },
+          { n:'04', t:'Cladding',       tag:'Deep. Striking. Modern.',            img:'assets/web/volcanic-stone-cladding.jpg' },
+          { n:'05', t:'Landscaping',    tag:'Authentic. Textured. Enduring.',     img:'assets/web/volcanic-stone-landscaping.jpg' }
+        ] }
+    ];
+
+    var arrowSvg = '<svg viewBox="0 0 24 12"><path d="M2 6 H21 M15 1 l6 5 -6 5" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+    var dlSvg = '<svg viewBox="0 0 24 24"><path d="M12 4 V15 M7 11 l5 5 5 -5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5 20 H19" stroke-linecap="round"></path></svg>';
+
+    function waLink(stone, app) {
+      return WA + encodeURIComponent('Hello, I would like to know more about ' + stone.name + ' ' + app.t + '.');
+    }
+
+    function render(stone) {
+      var cards = stone.apps.map(function (a) {
+        return '<a class="col-card" href="' + waLink(stone, a) + '" target="_blank" rel="noopener">' +
+          '<img src="' + a.img + '" alt="" loading="lazy">' +
+          '<span class="col-card-scrim"></span>' +
+          '<span class="col-card-text">' +
+            '<span class="cc-num">' + a.n + '</span>' +
+            '<span class="cc-title">' + a.t + '</span>' +
+            '<span class="cc-tag">' + a.tag + '</span>' +
+          '</span>' +
+        '</a>';
+      }).join('');
+
+      return '' +
+        '<section class="col-hero">' +
+          '<img src="' + stone.hero + '" alt="' + stone.name + ' natural stone" loading="lazy">' +
+          '<div class="col-hero-scrim"></div>' +
+          '<div class="col-hero-body">' +
+            '<p class="col-eyebrow">' + stone.name + '</p>' +
+            '<h1 class="col-h1">' + stone.title + '</h1>' +
+            '<div class="col-hrule"></div>' +
+            '<p class="col-lead">' + stone.lead + '</p>' +
+            '<div class="col-cta">' +
+              '<a class="col-btn solid" href="Request%20Sample%20Mobile.html?material=' + encodeURIComponent(stone.sample) + '">Request Sample</a>' +
+              '<a class="col-btn ghost" href="' + CATALOGUE + '" target="_blank" rel="noopener">' + dlSvg + 'Download Catalogue</a>' +
+            '</div>' +
+          '</div>' +
+        '</section>' +
+        '<section class="col-apps">' +
+          '<p class="col-apps-eyebrow">Explore ' + stone.name + ' in every application</p>' +
+          '<div class="col-list">' + cards + '</div>' +
+        '</section>';
+    }
+
+    var current = 0;
+    var view = document.getElementById('view');
+    var nextName = document.getElementById('nextName');
+
+    function show(i, scroll) {
+      current = (i + STONES.length) % STONES.length;
+      view.innerHTML = render(STONES[current]);
+      nextName.textContent = STONES[(current + 1) % STONES.length].name;
+      if (location.hash.slice(1) !== STONES[current].id) {
+        history.replaceState(null, '', '#' + STONES[current].id);
+      }
+      if (scroll) {
+        var framed = window.matchMedia('(min-width: 480px)').matches;
+        var dev = document.querySelector('.device');
+        if (framed && dev) dev.scrollTo({ top: 0, behavior: 'smooth' });
+        else window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // initial collection from hash, else first
+    var startIdx = 0;
+    var h = location.hash.slice(1);
+    STONES.forEach(function (s, i) { if (s.id === h) startIdx = i; });
+    show(startIdx, false);
+
+    document.getElementById('colNext').addEventListener('click', function () { show(current + 1, true); });
+
+    // footer/menu links to #id on this same page should switch the collection live
+    window.addEventListener('hashchange', function () {
+      var hh = location.hash.slice(1), idx = -1;
+      STONES.forEach(function (s, i) { if (s.id === hh) idx = i; });
+      if (idx >= 0 && idx !== current) show(idx, true);
+    });
+
+    // keep the fixed FAB anchored to the phone frame's bottom-right in the desktop mockup
+    var fab = document.getElementById('colNext');
+    function positionFab() {
+      var framed = window.matchMedia('(min-width: 480px)').matches;
+      if (framed) {
+        var r = document.querySelector('.device').getBoundingClientRect();
+        fab.style.bottom = (window.innerHeight - r.bottom + 22) + 'px';
+        fab.style.right = (window.innerWidth - r.right + 16) + 'px';
+      } else {
+        fab.style.bottom = ''; fab.style.right = '';
+      }
+    }
+    positionFab();
+    window.addEventListener('resize', positionFab);
+
+    // menu
+    var menu = document.getElementById('menu');
+    function positionMenu() {
+      var framed = window.matchMedia('(min-width: 480px)').matches;
+      if (framed) {
+        var dev = document.querySelector('.device');
+        var r = dev.getBoundingClientRect();
+        menu.style.top = r.top + 'px'; menu.style.left = r.left + 'px';
+        menu.style.width = r.width + 'px'; menu.style.height = r.height + 'px';
+        menu.style.right = 'auto'; menu.style.bottom = 'auto';
+        menu.style.borderRadius = getComputedStyle(dev).borderRadius;
+        menu.style.overflow = 'hidden';
+      } else {
+        menu.style.cssText = menu.style.cssText.replace(/(top|left|width|height|right|bottom|border-radius|overflow)\s*:[^;]*;?/g, '');
+      }
+    }
+    document.getElementById('menuOpen').addEventListener('click', function () { positionMenu(); menu.classList.add('open'); });
+    document.getElementById('menuClose').addEventListener('click', function () { menu.classList.remove('open'); });
+    window.addEventListener('resize', function () { if (menu.classList.contains('open')) positionMenu(); });
+  </script>
+</body>
+</html>

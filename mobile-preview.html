@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mobile Preview</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0b0908; display: flex; flex-direction: column; align-items: center;
+    justify-content: flex-start; min-height: 100vh; padding: 24px 0 40px; gap: 16px;
+    font-family: -apple-system, sans-serif; }
+  .label { color: rgba(245,239,228,0.5); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
+  .phone { position: relative; width: 390px; height: 844px; border-radius: 46px;
+    box-shadow: 0 0 0 12px #1a1614, 0 0 0 14px #0d0b0a, 0 40px 120px rgba(0,0,0,0.7);
+    overflow: hidden; flex: 0 0 auto; }
+  .phone iframe { width: 100%; height: 100%; border: none; display: block; }
+  nav { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  nav a { color: rgba(191,164,106,0.8); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 8px 14px; border: 1px solid rgba(191,164,106,0.3); text-decoration: none;
+    transition: border-color .2s ease; }
+  nav a:hover, nav a.active { border-color: rgba(191,164,106,0.8); color: #BFA46A; }
+</style>
+</head>
+<body>
+  <span class="label">Mobile Preview — 390 × 844</span>
+  <nav>
+    <a href="#" onclick="load('Mobile%20Hero.html');return false;" class="active">Hero</a>
+    <a href="#" onclick="load('Collections%20Mobile.html');return false;">Collections</a>
+    <a href="#" onclick="load('showroom.html');return false;">Showroom</a>
+    <a href="#" onclick="load('Travertine%20Studio.html');return false;">Travertine</a>
+    <a href="#" onclick="load('Limestone%20Studio.html');return false;">Limestone</a>
+    <a href="#" onclick="load('Marble%20Studio.html');return false;">Marble</a>
+    <a href="#" onclick="load('Quartzite%20Studio.html');return false;">Quartzite</a>
+    <a href="#" onclick="load('Andesite%20Studio.html');return false;">Andesite</a>
+    <a href="#" onclick="load('Terrazzo%20Studio.html');return false;">Terrazzo</a>
+    <a href="#" onclick="load('Request%20Sample%20Mobile.html');return false;">Sample</a>
+  </nav>
+  <div class="phone">
+    <iframe id="frame" src="Mobile%20Hero.html"></iframe>
+  </div>
+  <script>
+    function load(src) {
+      document.getElementById('frame').src = src;
+      document.querySelectorAll('nav a').forEach(function(a) {
+        a.classList.toggle('active', a.getAttribute('onclick').includes(src));
+      });
+    }
+  </script>
+</body>
+</html>

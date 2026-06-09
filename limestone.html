@@ -1,0 +1,493 @@
+<!DOCTYPE html><html lang="en"><head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-542NRLV2');</script>
+<!-- End Google Tag Manager -->
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Limestone — Rivano</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%232A211B'/%3E%3Ctext x='32' y='34' font-family='Georgia,serif' font-size='40' font-weight='400' fill='%23F5EFE4' text-anchor='middle' dominant-baseline='central'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<script src="image-slot.js"></script>
+<style>
+  :root {
+    --ivory: #F5EFE4;
+    --cream: #EDE7DB;
+    --espresso: #2A211B;
+    --soft-black: #15110F;
+    --panel: #1C1714;
+    --gold: #BFA46A;
+    --serif: "Cormorant Garamond", "Times New Roman", serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --side: 230px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    color: var(--ivory);
+    background: var(--soft-black);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; margin: 0; padding: 0; }
+
+  .shell { display: flex; align-items: flex-start; }
+
+  /* ============ LEFT BAND / SIDEBAR ============ */
+  .sidebar {
+    position: sticky; top: 0; flex: 0 0 var(--side); width: var(--side);
+    height: 100vh; background: var(--panel);
+    border-right: 1px solid rgba(245,239,228,0.07);
+    display: flex; flex-direction: column;
+    padding: 40px 30px 34px;
+  }
+  .side-logo { font-family: var(--serif); font-weight: 400; font-size: 25px; letter-spacing: 0.32em; padding-left: 6px; color: var(--ivory); }
+  .side-logo small { display: block; font-family: var(--sans); font-size: 10px; letter-spacing: 0.5em; color: rgba(245,239,228,0.6); margin-top: 6px; padding-left: 2px; }
+  .side-group { margin-top: 46px; }
+  .side-title { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin: 0 0 20px; }
+  .side-nav { display: flex; flex-direction: column; gap: 14px; }
+  .side-nav a { font-size: 14px; font-weight: 300; color: rgba(245,239,228,0.62); transition: color .2s ease, transform .2s ease; width: fit-content; }
+  .side-nav a:hover { color: var(--ivory); transform: translateX(3px); }
+  .side-nav a.active { color: var(--ivory); font-weight: 500; transform: translateX(8px); }
+  .side-nav a.current { color: var(--ivory); font-weight: 500; transform: translateX(8px); }
+  .side-nav a[href^="#use-"] { transition: color .25s ease, transform .25s ease; }
+  .side-spacer { flex: 1 1 auto; min-height: 30px; }
+  .side-wa {
+    display: inline-flex; align-items: center; gap: 10px; justify-content: center;
+    padding: 14px 16px; border: 1px solid rgba(245,239,228,0.28);
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ivory);
+    transition: border-color .25s ease, background .25s ease; text-align: center; line-height: 1.4;
+  }
+  .side-wa:hover { border-color: var(--gold); background: rgba(191,164,106,0.1); }
+  .side-wa svg { width: 15px; height: 15px; stroke: currentColor; flex: 0 0 auto; }
+
+  /* ============ MAIN COLUMN ============ */
+  .main { flex: 1 1 auto; min-width: 0; position: relative; overflow-x: hidden; }
+
+  .m-top {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 5;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 30px 44px; background: transparent;
+  }
+  .m-link { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; color: rgba(245,239,228,0.9); transition: color .2s ease; text-shadow: 0 1px 14px rgba(21,17,15,0.6); }
+  .m-link:hover { color: var(--ivory); }
+  .m-link svg { width: 20px; height: 10px; stroke: currentColor; transition: transform .25s ease; }
+  .m-link.back:hover svg { transform: translateX(-4px); }
+  .m-link.cat { border: 1px solid rgba(245,239,228,0.4); padding: 13px 22px; backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); }
+  .m-link.cat:hover { border-color: var(--gold); background: rgba(21,17,15,0.25); }
+
+  /* ============ HERO (full-bleed) ============ */
+  .hero2 { position: relative; min-height: 92vh; background: var(--soft-black); overflow: hidden; display: flex; align-items: center; }
+  .hero2-img { position: absolute; inset: 0; z-index: 0; }
+  .hero2-img img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.04); animation: heroIn 1600ms cubic-bezier(0.2,0.7,0.2,1) forwards; }
+  @keyframes heroIn { to { transform: scale(1); } }
+  .hero2::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background:
+      linear-gradient(100deg, rgba(21,17,15,0.94) 0%, rgba(21,17,15,0.80) 24%, rgba(21,17,15,0.40) 50%, rgba(21,17,15,0.04) 74%, rgba(21,17,15,0) 100%),
+      linear-gradient(to top, rgba(21,17,15,0.55) 0%, rgba(21,17,15,0) 42%),
+      linear-gradient(to bottom, rgba(21,17,15,0.6) 0%, rgba(21,17,15,0.12) 14%, rgba(21,17,15,0) 24%); }
+  .hero2-text { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; max-width: 780px; padding: 70px clamp(40px, 5vw, 84px) 70px clamp(44px, 6vw, 96px); }
+  .hero2 .eyebrow { font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--gold); margin: 0 0 24px; text-shadow: 0 1px 16px rgba(21,17,15,0.5); }
+  .hero2 h1 { font-family: var(--serif); font-weight: 300; font-size: clamp(36px, 4.8vw, 62px); line-height: 1.04; letter-spacing: -0.01em; margin: 0; color: var(--ivory); text-shadow: 0 2px 30px rgba(21,17,15,0.55); white-space: nowrap; }
+  .hrule { width: 54px; height: 1px; background: var(--gold); opacity: 0.8; margin: 34px 0; }
+  .hero2 .lead { font-size: 16px; line-height: 1.7; font-weight: 300; color: rgba(245,239,228,0.85); max-width: 380px; margin: 0; text-shadow: 0 1px 18px rgba(21,17,15,0.5); }
+
+  /* ============ CONTENT (dark) ============ */
+  .content { background: var(--soft-black); color: var(--ivory); }
+  .block { padding: clamp(80px, 11vh, 150px) 0 0; scroll-margin-top: 24px; }
+  .breath { display: flex; align-items: flex-start; gap: 14px; padding-left: clamp(44px, 6vw, 96px); margin-bottom: clamp(40px, 6vh, 78px); }
+  .breath .vmeasure { width: 1px; height: 44px; background: var(--gold); opacity: 0.55; margin-top: 3px; }
+  .breath .btxt { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; line-height: 1.6; }
+  .breath .btxt b { font-weight: 600; color: #A98C4F; }
+  .breath .btxt span { display: block; color: rgba(245,239,228,0.5); letter-spacing: 0.16em; }
+
+  .urow { display: grid; grid-template-columns: 1.25fr 0.85fr; align-items: center; }
+  .urow .uimg { height: 380px; }
+  .urow .uimg image-slot { width: 100%; height: 100%; display: block; }
+  .urow .utext { padding: 0 clamp(40px, 5vw, 84px) 0 clamp(44px, 6vw, 96px); }
+  .urow.rev { grid-template-columns: 0.85fr 1.25fr; }
+  .urow.rev .uimg { order: 2; }
+  .urow.rev .utext { order: 1; }
+
+  .u-num { font-size: 12px; letter-spacing: 0.3em; color: rgba(245,239,228,0.45); margin: 0 0 22px; font-variant-numeric: tabular-nums; }
+  .u-title { font-family: var(--serif); font-weight: 300; line-height: 1.04; font-size: clamp(32px, 3.6vw, 50px); margin: 0; color: var(--ivory); }
+  .u-rule { width: 40px; height: 1px; background: rgba(245,239,228,0.3); margin: 22px 0; }
+  .u-desc { font-size: 15.5px; line-height: 1.72; font-weight: 300; color: rgba(245,239,228,0.66); margin: 0; max-width: 36ch; }
+  .u-more { display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; color: var(--ivory); border-bottom: 1px solid rgba(245,239,228,0.3); padding-bottom: 6px; transition: border-color .2s ease; }
+  .u-more svg { width: 22px; height: 9px; stroke: currentColor; transition: transform .25s ease; }
+  .u-more:hover { border-color: var(--ivory); }
+  .u-more:hover svg { transform: translateX(5px); }
+
+  /* full-width marble band divider */
+  .band { margin-top: clamp(80px, 11vh, 150px); height: clamp(120px, 16vh, 190px); overflow: hidden; }
+  .band img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* ============ PLAN CTA ============ */
+  .plan { position: relative; background: var(--soft-black); color: var(--ivory); display: flex; align-items: center; min-height: clamp(420px, 34vw, 580px); overflow: hidden; }
+  .plan-scene { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; z-index: 1; pointer-events: none; }
+  .plan::after { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(105deg, rgba(21,17,15,0.94) 0%, rgba(21,17,15,0.72) 30%, rgba(21,17,15,0) 58%); }
+  .plan-text { position: relative; z-index: 4; display: flex; flex-direction: column; justify-content: center; max-width: 760px; padding: 40px clamp(40px,5vw,80px) 40px clamp(44px,6vw,96px); }
+  .plan-eyebrow { font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: #C7A97A; margin: 0 0 26px; }
+  .plan-text h2 { font-family: var(--serif); font-weight: 300; font-size: clamp(40px, 5vw, 72px); line-height: 1.0; letter-spacing: -0.01em; margin: 0; color: var(--ivory); white-space: nowrap; text-shadow: 0 2px 22px rgba(21,17,15,0.85), 0 1px 4px rgba(21,17,15,0.6); }
+  .plan-rule { width: 54px; height: 1px; background: var(--gold); opacity: 0.7; margin: 30px 0; }
+  .plan-text p { font-size: 16px; font-weight: 300; color: rgba(245,239,228,0.7); margin: 0 0 38px; max-width: 320px; line-height: 1.7; text-shadow: 0 1px 14px rgba(21,17,15,0.8); }
+  .plan-actions { display: flex; align-items: center; gap: 24px; flex-wrap: nowrap; }
+  .plan-wa { display: inline-flex; align-items: center; gap: 12px; padding: 16px 26px; border: 1px solid rgba(245,239,228,0.3); color: #C7A97A; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; white-space: nowrap; transition: border-color .25s ease, background .25s ease; }
+  .plan-wa:hover { border-color: var(--gold); background: rgba(191,164,106,0.1); }
+  .plan-wa svg { width: 17px; height: 17px; stroke: currentColor; }
+  .plan-cat { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; color: #C7A97A; white-space: nowrap; transition: color .2s ease; }
+  .plan-cat:hover { color: var(--ivory); }
+  .plan-cat svg { width: 15px; height: 15px; stroke: currentColor; }
+  .plan-img { position: relative; overflow: hidden; min-height: 470px; }
+  .plan-img image-slot, .plan-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* ===================== FOOTER ===================== */
+  .footer { background: var(--soft-black); color: var(--ivory); padding: 92px 56px 36px; }
+  .footer-inner { max-width: 1280px; margin: 0 auto; }
+  .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1.5fr; gap: 40px; }
+  .f-logo { font-family: var(--serif); font-weight: 300; font-size: 40px; letter-spacing: 0.22em; line-height: 1; color: var(--ivory); padding-left: 4px; }
+  .f-logo-sub { font-size: 13px; letter-spacing: 0.46em; color: rgba(245,239,228,0.85); margin-top: 7px; padding-left: 6px; }
+  .f-tagline { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); line-height: 1.7; margin: 30px 0 0; }
+  .f-rule { width: 46px; height: 1px; background: var(--gold); opacity: 0.7; margin: 18px 0; }
+  .f-desc { font-size: 14px; line-height: 1.7; font-weight: 300; color: rgba(245,239,228,0.6); max-width: 290px; margin: 0; }
+  .f-cat { display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; padding: 16px 26px; border: 1px solid rgba(245,239,228,0.28); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ivory); transition: border-color .25s ease, background .25s ease; }
+  .f-cat:hover { border-color: var(--gold); background: rgba(191,164,106,0.08); }
+  .f-cat svg { width: 15px; height: 15px; stroke: currentColor; }
+  .f-col-title { font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(245,239,228,0.85); margin: 6px 0 0; }
+  .f-col .f-rule { margin: 14px 0 26px; }
+  .f-links { display: flex; flex-direction: column; gap: 15px; }
+  .f-links a { font-size: 15px; font-weight: 300; color: rgba(245,239,228,0.72); transition: color .2s ease, transform .2s ease; width: fit-content; }
+  .f-links a:hover { color: var(--ivory); transform: translateX(3px); }
+  .f-contact-title { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ivory); line-height: 1.5; margin: 0; font-weight: 400; }
+  .f-contact-col .f-rule { margin: 16px 0 26px; }
+  .f-contact { display: flex; flex-direction: column; gap: 22px; }
+  .f-contact-row { display: flex; align-items: center; gap: 16px; }
+  .f-ico { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(191,164,106,0.5); display: flex; align-items: center; justify-content: center; color: var(--gold); }
+  .f-ico svg { width: 17px; height: 17px; stroke: currentColor; }
+  .f-contact-row .ct-main { display: block; font-size: 15px; color: var(--ivory); font-weight: 300; }
+  .f-contact-row .ct-sub { display: block; font-size: 12px; letter-spacing: 0.04em; color: rgba(245,239,228,0.45); margin-top: 3px; }
+  .f-wa { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 28px; padding: 18px; background: rgba(191,164,106,0.14); border: 1px solid rgba(191,164,106,0.35); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ivory); transition: background .25s ease; }
+  .f-wa:hover { background: rgba(191,164,106,0.24); }
+  .f-wa svg { width: 18px; height: 18px; stroke: currentColor; }
+  .f-bottom { margin-top: 64px; padding-top: 28px; border-top: 1px solid rgba(245,239,228,0.12); display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
+  .f-legal { font-size: 13px; color: rgba(245,239,228,0.55); line-height: 1.9; }
+  .f-legal a { color: rgba(245,239,228,0.55); }
+  .f-legal a:hover { color: var(--ivory); }
+  .f-social { display: flex; align-items: center; gap: 18px; font-size: 13px; color: rgba(245,239,228,0.55); }
+  .f-social .sep { width: 1px; height: 16px; background: rgba(245,239,228,0.2); }
+  .f-social a { display: inline-flex; color: rgba(245,239,228,0.75); transition: color .2s ease; }
+  .f-social a:hover { color: var(--gold); }
+  .f-social svg { width: 19px; height: 19px; }
+
+
+  /* ============ REQUEST SAMPLE ============ */
+  .hero2-cta { margin-top: 38px; }
+  .btn-sample { display: inline-flex; align-items: center; gap: 14px; padding: 17px 30px; background: var(--gold-terra, #B0703E); border: 1px solid #B0703E; color: var(--ivory); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; transition: background .25s ease, border-color .25s ease, transform .2s ease; }
+  .btn-sample:hover { background: #9c5f31; border-color: #9c5f31; transform: translateY(-1px); }
+  .btn-sample svg { width: 19px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.6; transition: transform .25s ease; }
+  .btn-sample:hover svg { transform: translateX(4px); }
+  .side-sample { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 16px; margin-bottom: 12px; background: #B0703E; border: 1px solid #B0703E; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ivory); transition: background .25s ease, border-color .25s ease; text-align: center; line-height: 1.4; }
+  .side-sample:hover { background: #9c5f31; border-color: #9c5f31; }
+  .side-sample svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.5; flex: 0 0 auto; }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 720px) {
+    .shell { flex-direction: column; }
+    .sidebar { position: static; width: 100%; height: auto; flex-basis: auto; border-right: none; border-bottom: 1px solid rgba(245,239,228,0.08); flex-direction: row; flex-wrap: wrap; align-items: center; gap: 18px 40px; padding: 24px 28px; }
+    .side-group { margin-top: 0; }
+    .side-spacer { display: none; }
+    .side-nav { flex-direction: row; flex-wrap: wrap; gap: 14px 22px; }
+    .side-wa { margin-left: auto; }
+    .hero2 { min-height: 72vh; }
+    .hero2-img { min-height: 320px; }
+    .urow, .urow.rev { grid-template-columns: 1fr; }
+    .urow.rev .uimg, .urow.rev .utext { order: 0; }
+    .urow .uimg { height: 300px; }
+    .urow .utext { padding: 40px 28px 8px; }
+    .plan { min-height: auto; }
+    .plan-scene { display: none; }
+    .plan-text { padding: 56px 28px; }
+    .plan-img { min-height: 300px; order: -1; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px 28px; }
+    .f-brand, .f-contact-col { grid-column: 1 / -1; }
+    .f-bottom { flex-direction: column; align-items: flex-start; gap: 18px; }
+  }
+</style>
+</head>
+<body style="">
+<!-- Google Tag Manager (noscript) -->
+<noscript style="display:none;"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-542NRLV2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <div class="shell">
+
+    <!-- ============ LEFT BAND ============ -->
+    <aside class="sidebar">
+      <a class="side-logo" href="index.html">RIVANO<small>STONE</small></a>
+
+      <div class="side-group">
+        <p class="side-title">Collections</p>
+        <nav class="side-nav">
+          <a href="travertine.html">Travertine</a>
+          <a href="limestone.html" class="active">Limestone</a>
+          <a href="marble.html">Marble</a>
+          <a href="quartzite.html">Quartzite</a>
+          <a href="volcanic-stone.html">Volcanic Stone</a>
+        </nav>
+      </div>
+
+      <div class="side-group">
+        <p class="side-title">Applications</p>
+        <nav class="side-nav">
+          <a href="#use-terraces">Terraces</a>
+          <a href="#use-bathrooms">Bathrooms</a>
+          <a href="#use-wall-cladding">Wall Cladding</a>
+          <a href="#use-landscaping">Landscaping</a>
+        </nav>
+      </div>
+
+      <div class="side-spacer"></div>
+
+      <a class="side-sample" href="sample.html?material=Limestone">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="12" height="12" rx="1"></rect><rect x="9" y="9" width="11" height="11" rx="1"></rect></svg>
+        Request Sample
+      </a>
+      <a class="side-wa" href="https://wa.me/6281359496795?text=hello%2C%20i%20would%20like%20to%20discuss%20about%20my%20project." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M6 4 h3 l1.5 4 -2 1.4 a10 10 0 0 0 4.6 4.6 l1.4 -2 4 1.5 v3 a2 2 0 0 1 -2.2 2 A15 15 0 0 1 5 6.2 2 2 0 0 1 6 4 Z" stroke-linejoin="round"></path></svg>
+        Chat on WhatsApp
+      </a>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <div class="main">
+
+      <header class="m-top">
+        <a class="m-link back" href="index.html">
+          <svg viewBox="0 0 22 10" fill="none" stroke-width="1"><path d="M5.5 1 L1 5 L5.5 9 M1 5 H21" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          Back to Main Page
+        </a>
+        <a class="m-link cat" href="https://www.dropbox.com/scl/fi/5fkphhehdx23qnxv3uo75/catalogue-compressed.pdf?rlkey=t4ggirzc0du67j0s6r1fra849&amp;dl=1" target="_blank" rel="noopener">Download Catalogue</a>
+      </header>
+
+      <section class="hero2">
+        <div class="hero2-text">
+          <p class="eyebrow">Limestone</p>
+          <h1>Subtle tones.<br>Enduring calm.</h1>
+          <div class="hrule"></div>
+          <p class="lead">Subtle tones and refined finishes give limestone a calm, enduring aesthetic — a quiet sophistication that settles naturally into any space.</p>
+          <div class="hero2-cta">
+            <a class="btn-sample" href="sample.html?material=Limestone">
+              Request Sample
+              <svg viewBox="0 0 24 12"><path d="M2 6 H21 M15 1 l6 5 -6 5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero2-img">
+          <img src="assets/web/limestone.jpg" alt="Limestone natural stone" loading="eager" fetchpriority="high">
+        </div>
+      </section>
+
+      <div class="content">
+
+        <section class="block" id="use-terraces">
+          <div class="urow">
+            <div class="uimg"><image-slot id="limestone-terraces" shape="rect" src="assets/web/limestone-terraces.jpg" placeholder="Drop a Terraces photo"></image-slot></div>
+            <div class="utext">
+              <p class="u-num">01</p>
+              <h3 class="u-title">Terraces</h3>
+              <div class="u-rule"></div>
+              <p class="u-desc">Limestone terraces combine refined textures and natural durability, creating elegant outdoor spaces that blend seamlessly with modern architecture.</p>
+              <a class="u-more" href="https://wa.me/6281359496795?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20Limestone%20terraces." target="_blank" rel="noopener">Discover More <svg viewBox="0 0 26 10" fill="none" stroke-width="1"><path d="M20 1 L25 5 L20 9 M0 5 H25" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+            </div>
+          </div>
+        </section>
+
+        <div class="band"><img src="assets/web/limestone-angle.jpg" alt="Limestone slab" loading="lazy"></div>
+
+        <section class="block" id="use-bathrooms">
+          <div class="urow rev">
+            <div class="uimg"><image-slot id="limestone-bathrooms" shape="rect" src="assets/web/limestone-bathrooms.jpg" placeholder="Drop a Bathrooms photo"></image-slot></div>
+            <div class="utext">
+              <p class="u-num">02</p>
+              <h3 class="u-title">Bathrooms</h3>
+              <div class="u-rule"></div>
+              <p class="u-desc">Soft tones and subtle textures bring warmth and serenity, transforming bathrooms into timeless spaces of comfort and relaxation.</p>
+              <a class="u-more" href="https://wa.me/6281359496795?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20Limestone%20bathrooms." target="_blank" rel="noopener">Discover More <svg viewBox="0 0 26 10" fill="none" stroke-width="1"><path d="M20 1 L25 5 L20 9 M0 5 H25" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="block" id="use-wall-cladding">
+          <div class="urow">
+            <div class="uimg"><image-slot id="limestone-wall-cladding" shape="rect" src="assets/web/limestone-wall-cladding.jpg" placeholder="Drop a Wall Cladding photo"></image-slot></div>
+            <div class="utext">
+              <p class="u-num">03</p>
+              <h3 class="u-title">Wall Cladding</h3>
+              <div class="u-rule"></div>
+              <p class="u-desc">Limestone wall cladding adds depth and visual interest, creating interiors defined by natural elegance and enduring appeal.</p>
+              <a class="u-more" href="https://wa.me/6281359496795?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20Limestone%20wall%20cladding." target="_blank" rel="noopener">Discover More <svg viewBox="0 0 26 10" fill="none" stroke-width="1"><path d="M20 1 L25 5 L20 9 M0 5 H25" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="block" id="use-landscaping">
+          <div class="urow rev">
+            <div class="uimg"><image-slot id="limestone-landscaping" shape="rect" src="assets/web/limestone-landscaping.jpg" placeholder="Drop a Landscaping photo"></image-slot></div>
+            <div class="utext">
+              <p class="u-num">04</p>
+              <h3 class="u-title">Landscaping</h3>
+              <div class="u-rule"></div>
+              <p class="u-desc">From garden walls to pathways, limestone enhances outdoor environments with authentic texture and a harmonious architectural presence.</p>
+              <a class="u-more" href="https://wa.me/6281359496795?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20Limestone%20landscaping." target="_blank" rel="noopener">Discover More <svg viewBox="0 0 26 10" fill="none" stroke-width="1"><path d="M20 1 L25 5 L20 9 M0 5 H25" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="band band-end"><img src="assets/web/limestone-band.jpg" alt="Limestone texture" loading="lazy"></div>
+
+      <section class="plan">
+        <img class="plan-scene" src="assets/web/plan-scene.png" alt="" loading="lazy">
+        <div class="plan-text">
+          <p class="plan-eyebrow">Let's Create</p>
+          <h2>Planning a project ?</h2>
+          <div class="plan-rule"></div>
+          <p>Our team is here to help you select the perfect natural stone for your space.</p>
+          <div class="plan-actions">
+            <a class="plan-wa" href="https://wa.me/6281359496795?text=hello%2C%20i%20would%20like%20to%20discuss%20about%20my%20project." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M6 4 h3 l1.5 4 -2 1.4 a10 10 0 0 0 4.6 4.6 l1.4 -2 4 1.5 v3 a2 2 0 0 1 -2.2 2 A15 15 0 0 1 5 6.2 2 2 0 0 1 6 4 Z" stroke-linejoin="round"></path></svg>
+              Chat on WhatsApp
+            </a>
+            <a class="plan-cat" href="https://www.dropbox.com/scl/fi/5fkphhehdx23qnxv3uo75/catalogue-compressed.pdf?rlkey=t4ggirzc0du67j0s6r1fra849&amp;dl=1" target="_blank" rel="noopener">
+              Download Catalogue
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 3 V15 M7 11 l5 5 5 -5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 20 H20" stroke-linecap="round"></path></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer" style="padding: 0px 56px 36px;">
+        <div class="footer-inner">
+          <div class="footer-grid" style="margin: 35px 0px 0px">
+
+            <div class="f-brand">
+              <div class="f-logo">RIVANO</div>
+              <div class="f-logo-sub">STONE</div>
+              <p class="f-tagline">Indonesian Natural Stone<br>For Timeless Architecture</p>
+              <div class="f-rule"></div>
+              <p class="f-desc">Rivano Stone presents a curated selection of premium natural stones, sourced from Indonesia and crafted for exceptional architectural spaces.</p>
+            </div>
+
+            <div class="f-col">
+              <h4 class="f-col-title">Collections</h4>
+              <div class="f-rule"></div>
+              <nav class="f-links">
+                <a href="travertine.html">Travertine</a>
+                <a href="limestone.html">Limestone</a>
+                <a href="marble.html">Marble</a>
+                <a href="quartzite.html">Quartzite</a>
+                <a href="volcanic-stone.html">Volcanic Stone</a>
+              </nav>
+            </div>
+
+            <div class="f-col">
+              <h4 class="f-col-title">Applications</h4>
+              <div class="f-rule"></div>
+              <nav class="f-links">
+                <a href="#use-terraces">Terraces</a>
+                <a href="#use-bathrooms">Bathrooms</a>
+                <a href="#use-wall-cladding">Wall Cladding</a>
+                <a href="#use-landscaping">Landscaping</a>
+              </nav>
+            </div>
+
+            <div class="f-col">
+              <h4 class="f-col-title">Company</h4>
+              <div class="f-rule"></div>
+              <nav class="f-links">
+                <a href="index.html">About Rivano</a>
+                <a href="index.html">Sustainability</a>
+                <a href="index.html">Our Process</a>
+                <a href="index.html">Projects</a>
+                <a href="index.html#collections">Contact</a>
+              </nav>
+            </div>
+
+            <div class="f-contact-col">
+              <p class="f-contact-title">Let's Create<br>Something Timeless</p>
+              <div class="f-rule"></div>
+              <div class="f-contact">
+                <a class="f-contact-row" href="https://wa.me/6281359496795" target="_blank" rel="noopener">
+                  <span class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M6 4 h3 l1.5 4 -2 1.4 a10 10 0 0 0 4.6 4.6 l1.4 -2 4 1.5 v3 a2 2 0 0 1 -2.2 2 A15 15 0 0 1 5 6.2 2 2 0 0 1 6 4 Z" stroke-linejoin="round"></path></svg></span>
+                  <span><span class="ct-main">+62 813 5949 6795</span><span class="ct-sub">WhatsApp</span></span>
+                </a>
+                <a class="f-contact-row" href="mailto:info@rivanostone.id">
+                  <span class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1.5"></rect><path d="M3.5 7 L12 13 L20.5 7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                  <span><span class="ct-main">info@rivanostone.id</span><span class="ct-sub">Email</span></span>
+                </a>
+                <div class="f-contact-row">
+                  <span class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 21 c5 -5 7 -8.2 7 -11 a7 7 0 0 0 -14 0 c0 2.8 2 6 7 11 Z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.4"></circle></svg></span>
+                  <span><span class="ct-main">Bali, Indonesia</span></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="f-bottom">
+            <div class="f-legal">
+              © 2026 Rivano Stone. All rights reserved.<br>
+              <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms &amp; Conditions</a>
+            </div>
+            <div class="f-social">
+              <span>Follow Us</span>
+              <span class="sep"></span>
+              <a href="https://www.instagram.com/rivano.stone?utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"></circle></svg></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.side-nav a[href^="#use-"]'));
+    if (!links.length) return;
+    var map = {};
+    var sections = [];
+    links.forEach(function (a) {
+      var id = a.getAttribute('href').slice(1);
+      var sec = document.getElementById(id);
+      if (sec) { map[id] = a; sections.push(sec); }
+    });
+    function clear() { links.forEach(function (a) { a.classList.remove('current'); }); }
+    var io = new IntersectionObserver(function (entries) {
+      // pick the most-visible intersecting section
+      var best = null;
+      entries.forEach(function (e) {
+        e.target.__ratio = e.isIntersecting ? e.intersectionRatio : 0;
+      });
+      sections.forEach(function (s) {
+        if (s.__ratio > 0 && (!best || s.__ratio > best.__ratio)) best = s;
+      });
+      if (best) { clear(); var a = map[best.id]; if (a) a.classList.add('current'); }
+    }, { rootMargin: '-30% 0px -45% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] });
+    sections.forEach(function (s) { io.observe(s); });
+  })();
+  </script>
+
+</body></html>

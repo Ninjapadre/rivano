@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-542NRLV2');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andesite Studio — Rivano Stone</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2315110F'/%3E%3Ctext x='32' y='34' font-family='Georgia,serif' font-size='40' fill='%23BFA46A' text-anchor='middle' dominant-baseline='central'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F5EFE4;
+    --soft-black: #0a0809;
+    --gold: #BFA46A;
+    --serif: "Cormorant Garamond", "Times New Roman", serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body { font-family: var(--sans); color: var(--ivory); background: #050506; overflow: hidden;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; color: inherit; }
+
+  /* ---------- 3D STAGE ---------- */
+  /* backdrop + canvas live in one zoom wrapper so framing scales them together,
+     keeping the 3D slab locked to the painted pedestal (only the framing changes) */
+  .world { position: fixed; inset: 0; z-index: 0; transform: scale(1.14); transform-origin: 50% 60%; }
+  .backdrop { position: absolute; inset: 0; z-index: 0; background: #050506 url('assets/web/studio-backdrop.jpg') center center / cover no-repeat; }
+  #stage { position: absolute; inset: 0; z-index: 1; cursor: grab; }
+  #stage.grabbing { cursor: grabbing; }
+  #stage canvas { display: block; }
+
+  /* side veils to lift the side-panel text off the lit columns (legibility) */
+  .atmos { position: fixed; inset: 0; z-index: 2; pointer-events: none;
+    background:
+      linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.22) 16%, rgba(0,0,0,0) 32%, rgba(0,0,0,0) 68%, rgba(0,0,0,0.22) 84%, rgba(0,0,0,0.55) 100%),
+      radial-gradient(100% 100% at 50% 46%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4) 100%); }
+
+  /* ---------- LOADER ---------- */
+  #loader { position: fixed; inset: 0; z-index: 30; display: grid; place-items: center;
+    background: #050506; transition: opacity .8s ease, visibility .8s ease; }
+  #loader.hide { opacity: 0; visibility: hidden; }
+  .loader-mark { font-family: var(--serif); font-size: 30px; letter-spacing: 0.32em; color: var(--gold); margin-bottom: 22px; }
+  .loader-txt { font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: rgba(245,239,228,0.55); }
+  .loader-bar { width: 120px; height: 1px; background: rgba(245,239,228,0.18); margin: 20px auto 0; overflow: hidden; }
+  .loader-bar i { display: block; height: 100%; width: 0; background: var(--gold); animation: ld 2.2s ease-in-out infinite; }
+  @keyframes ld { 0% { width: 0; margin-left: 0; } 50% { width: 100%; margin-left: 0; } 100% { width: 0; margin-left: 100%; } }
+
+  /* ---------- TOP BAR ---------- */
+  .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 20; display: flex; align-items: center;
+    justify-content: space-between; padding: 28px clamp(24px,3.4vw,52px); }
+  .back { display: inline-flex; align-items: center; gap: 11px; font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: rgba(245,239,228,0.78); transition: color .25s ease; }
+  .back:hover { color: var(--gold); }
+  .back svg { width: 20px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+  .brand { text-align: center; line-height: 1; }
+  .brand .bn { font-family: var(--serif); font-weight: 500; font-size: 20px; letter-spacing: 0.22em; }
+  .brand .bs { font-size: 8.5px; letter-spacing: 0.4em; color: rgba(245,239,228,0.55); margin-top: 5px; }
+  .tag { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
+
+  /* ---------- SIDE PANELS ---------- */
+  .panel { position: fixed; top: 50%; transform: translateY(-50%); z-index: 15; width: clamp(210px, 19vw, 268px); }
+  .panel-l { left: clamp(24px, 3.4vw, 56px); }
+  .panel-r { right: clamp(24px, 3.4vw, 56px); text-align: right; }
+  .eyebrow { display: flex; align-items: center; gap: 13px; font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .panel-r .eyebrow { justify-content: flex-end; }
+  .eyebrow::before { content: ""; width: 30px; height: 1px; background: var(--gold); opacity: 0.8; }
+  .panel-r .eyebrow::before { order: 2; }
+  .title { font-family: var(--serif); font-weight: 400; font-size: clamp(33px, 3.1vw, 46px); line-height: 1.0;
+    letter-spacing: 0.01em; margin: 0 0 28px; }
+  .title em { font-style: italic; color: var(--gold); }
+
+  .spec { padding: 13px 0; border-top: 1px solid rgba(245,239,228,0.12); }
+  .spec:last-child { border-bottom: 1px solid rgba(245,239,228,0.12); }
+  .spec .k { font-size: 9.5px; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(245,239,228,0.48); margin-bottom: 6px; }
+  .spec .v { font-family: var(--serif); font-size: 19px; letter-spacing: 0.02em; color: rgba(245,239,228,0.94); }
+
+  .applist { list-style: none; margin: 0; padding: 0; }
+  .applist li { padding: 9px 0; font-family: var(--serif); font-size: 18px; color: rgba(245,239,228,0.9);
+    border-top: 1px solid rgba(245,239,228,0.1); }
+  .applist li:first-child { border-top: none; }
+
+  /* ---------- BOTTOM SWATCHES (textured thumbnails + label) ---------- */
+  .swatches { position: fixed; left: 50%; bottom: clamp(22px, 3.4vh, 40px); transform: translateX(-50%);
+    z-index: 16; }
+  .swatch-row { display: flex; gap: clamp(14px, 2vw, 34px); align-items: flex-start; }
+  .chip { background: none; border: 0; padding: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .chip-img { width: clamp(94px, 9vw, 132px); height: clamp(58px, 5.6vw, 82px); background-size: cover; background-position: center;
+    border: 1px solid rgba(245,239,228,0.22); border-radius: 2px; box-shadow: 0 10px 24px rgba(0,0,0,0.45);
+    transition: transform .35s cubic-bezier(.5,0,.2,1), border-color .35s ease, box-shadow .35s ease; }
+  .chip:hover .chip-img { transform: translateY(-5px); border-color: rgba(191,164,106,0.6); }
+  .chip.active .chip-img { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold), 0 12px 28px rgba(0,0,0,0.55); }
+  .chip-name { position: relative; font-size: 10.5px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: rgba(245,239,228,0.66); padding-bottom: 9px; white-space: nowrap; transition: color .3s ease; }
+  .chip-name::after { content: ""; position: absolute; left: 50%; bottom: 0; width: 0; height: 1px; background: var(--gold);
+    transform: translateX(-50%); transition: width .35s cubic-bezier(.5,0,.2,1); }
+  .chip:hover .chip-name { color: rgba(245,239,228,0.9); }
+  .chip.active .chip-name { color: var(--gold); }
+  .chip.active .chip-name::after { width: 22px; }
+
+  /* ---------- HINT ---------- */
+  .hint { position: fixed; left: 50%; top: 50%; transform: translate(-50%, 130px); z-index: 14;
+    display: flex; align-items: center; gap: 11px; font-size: 10.5px; letter-spacing: 0.26em;
+    text-transform: uppercase; color: rgba(245,239,228,0.5); pointer-events: none;
+    animation: hintFade 4s ease-in-out 2s forwards; }
+  .hint svg { width: 30px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.4; }
+  @keyframes hintFade { to { opacity: 0; } }
+
+  @media (max-width: 880px) {
+    .panel { position: fixed; top: auto; transform: none; width: auto; width: 44%; }
+    .panel-l { left: 18px; bottom: 150px; }
+    .panel-r { right: 18px; bottom: 150px; }
+    .title { font-size: 24px; margin-bottom: 16px; }
+    .spec { padding: 9px 0; } .spec .v { font-size: 16px; } .applist li { font-size: 15px; padding: 6px 0; }
+    .chip-img { width: 96px; height: 62px; } .swatch-row { gap: 14px; justify-content: flex-start; } .chip-name { font-size: 10px; letter-spacing: 0.11em; }
+    .tag { display: none; }
+  }
+
+  /* ---------- VIEW TEXTURE TRIGGER (subtle, top-right) ---------- */
+  .viewtex-link { display: inline-flex; align-items: center; gap: 10px; padding: 11px 20px; border-radius: 40px;
+    font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ivory);
+    background: rgba(20,16,14,0.5); border: 1px solid rgba(191,164,106,0.55); backdrop-filter: blur(7px);
+    transition: background .25s ease, border-color .25s ease, color .25s ease; }
+  .viewtex-link:hover { background: rgba(191,164,106,0.18); border-color: var(--gold); color: var(--gold); }
+  .viewtex-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+  /* ---------- TEXTURE VIEWER ---------- */
+  .texview { position: fixed; inset: 0; z-index: 90; background: #0a0807; display: none; overflow: hidden;
+    opacity: 0; cursor: default; }
+  .texview.grabbing { cursor: grabbing; }
+  .texview-stage { position: absolute; inset: 0; overflow: hidden; }
+  .texview-img { position: absolute; left: 50%; top: 50%; transform-origin: 0 0; will-change: transform;
+    user-select: none; -webkit-user-drag: none; image-rendering: auto; }
+  /* dark luxury vignette + subtle top/bottom scrims for chrome legibility */
+  .texview-veil { position: absolute; inset: 0; pointer-events: none;
+    background:
+      linear-gradient(to bottom, rgba(8,6,5,0.72) 0%, rgba(8,6,5,0) 16%, rgba(8,6,5,0) 80%, rgba(8,6,5,0.72) 100%),
+      radial-gradient(120% 120% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%); }
+
+  .texview-top { position: absolute; top: 0; left: 0; right: 0; z-index: 3;
+    display: flex; align-items: center; justify-content: space-between; padding: 26px clamp(20px,3vw,40px); }
+  .tv-title { text-align: center; pointer-events: none; }
+  .tv-title .tn { font-family: var(--serif); font-weight: 500; font-size: clamp(22px,2.4vw,30px); letter-spacing: 0.34em; text-transform: uppercase; }
+  .tv-title .ts { font-family: var(--sans); font-size: 9px; letter-spacing: 0.42em; text-transform: uppercase; color: rgba(245,239,228,0.55); margin-top: 7px; }
+
+  .tv-pill { display: inline-flex; align-items: center; gap: 11px; padding: 12px 20px; border-radius: 40px;
+    font-family: var(--sans); font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ivory);
+    background: rgba(20,16,14,0.62); border: 1px solid rgba(245,239,228,0.22); backdrop-filter: blur(7px);
+    transition: border-color .25s ease, background .25s ease; }
+  .tv-pill:hover { border-color: var(--gold); background: rgba(191,164,106,0.16); }
+  .tv-pill svg { width: 18px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+  .tv-round { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; padding: 0;
+    background: rgba(20,16,14,0.62); border: 1px solid rgba(245,239,228,0.22); backdrop-filter: blur(7px);
+    color: var(--ivory); transition: border-color .25s ease, background .25s ease; }
+  .tv-round:hover { border-color: var(--gold); background: rgba(191,164,106,0.16); }
+  .tv-round .ic { font-family: var(--serif); font-style: italic; font-size: 17px; }
+  .tv-round .lbl { position: absolute; top: 52px; font-size: 8px; letter-spacing: 0.3em; color: rgba(245,239,228,0.5); }
+  .tv-corner { position: relative; display: flex; flex-direction: column; align-items: center; }
+
+  /* zoom column (left) */
+  .tv-zoom { position: absolute; left: clamp(18px,2.4vw,34px); top: 50%; transform: translateY(-50%); z-index: 3;
+    display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 10px; border-radius: 16px;
+    background: rgba(20,16,14,0.55); border: 1px solid rgba(245,239,228,0.16); backdrop-filter: blur(7px); }
+  .tv-zoom button { width: 38px; height: 38px; border: 0; background: none; color: var(--ivory); font-size: 22px; font-weight: 300;
+    display: grid; place-items: center; border-radius: 9px; transition: background .2s ease, color .2s ease; line-height: 1; }
+  .tv-zoom button:hover { background: rgba(191,164,106,0.18); color: var(--gold); }
+  .tv-zoom .tv-readout { padding: 12px 0; text-align: center; }
+  .tv-zoom .rl { font-size: 8.5px; letter-spacing: 0.26em; color: rgba(245,239,228,0.5); text-transform: uppercase; }
+  .tv-zoom .rv { font-family: var(--serif); font-size: 19px; color: var(--gold); margin-top: 3px; font-variant-numeric: tabular-nums; }
+
+  /* preset bar (bottom center) */
+  .tv-presets { position: absolute; left: 50%; bottom: clamp(22px,3.4vh,40px); transform: translateX(-50%); z-index: 3;
+    display: flex; gap: 4px; padding: 5px; border-radius: 40px;
+    background: rgba(20,16,14,0.6); border: 1px solid rgba(245,239,228,0.16); backdrop-filter: blur(7px); }
+  .tv-presets button { padding: 10px 22px; border: 1px solid transparent; background: none; color: rgba(245,239,228,0.78);
+    border-radius: 40px; font-family: var(--sans); font-size: 11px; letter-spacing: 0.12em; transition: all .25s ease;
+    font-variant-numeric: tabular-nums; }
+  .tv-presets button:hover { color: var(--ivory); }
+  .tv-presets button.on { border-color: var(--gold); color: var(--gold); background: rgba(191,164,106,0.1); }
+
+  /* corner tools */
+  .tv-fit { display: none; }
+  .tv-pan { display: none; }
+  .tv-tool { width: 58px; height: 58px; border-radius: 14px; display: grid; place-items: center; gap: 0; padding: 0;
+    background: rgba(20,16,14,0.6); border: 1px solid rgba(245,239,228,0.18); backdrop-filter: blur(7px); color: var(--ivory);
+    transition: border-color .25s ease, background .25s ease; }
+  .tv-tool:hover { border-color: var(--gold); background: rgba(191,164,106,0.16); }
+  .tv-tool svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.4; }
+  .tv-tool .tl { font-size: 8px; letter-spacing: 0.24em; color: rgba(245,239,228,0.6); margin-top: 5px; text-transform: uppercase; }
+
+  /* info flyout */
+  .tv-info { position: absolute; top: 84px; right: clamp(20px,3vw,40px); z-index: 4; width: 230px; padding: 22px 24px;
+    border-radius: 14px; background: rgba(16,12,11,0.82); border: 1px solid rgba(245,239,228,0.16); backdrop-filter: blur(10px);
+    opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity .3s ease, transform .3s ease, visibility .3s; }
+  .tv-info.show { opacity: 1; visibility: visible; transform: translateY(0); }
+  .tv-info h4 { font-family: var(--serif); font-weight: 500; font-size: 18px; letter-spacing: 0.12em; margin: 0 0 14px; }
+  .tv-info .ir { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-top: 1px solid rgba(245,239,228,0.1);
+    font-size: 11px; }
+  .tv-info .ir .ik { color: rgba(245,239,228,0.5); letter-spacing: 0.1em; text-transform: uppercase; font-size: 9.5px; }
+  .tv-info .ir .iv { color: rgba(245,239,228,0.92); font-family: var(--serif); font-size: 14px; }
+
+  /* ---------- FINISH CIRCLES (right) ---------- */
+  .finish-dots { position: fixed; right: clamp(20px,2.6vw,46px); top: 50%; transform: translateY(-50%); z-index: 18;
+    display: flex; flex-direction: column; align-items: center; gap: clamp(22px,3.4vh,40px); }
+  .finish-dots.hidden { display: none; }
+  body.with-dots .panel-r { right: clamp(150px,16vw,214px); }
+  .fdot { display: flex; flex-direction: column; align-items: center; gap: 13px; background: none; border: 0; padding: 0; cursor: default; }
+  .fdot-ring { width: clamp(118px,11.5vw,156px); height: clamp(118px,11.5vw,156px); border-radius: 50%; padding: 5px;
+    border: 1.5px solid var(--ring, #BFA46A); box-shadow: 0 10px 30px rgba(0,0,0,0.55); }
+  .fdot-ring span { display: block; width: 100%; height: 100%; border-radius: 50%; background-size: cover; background-position: center; }
+  #dotRebord { background-size: cover; background-position: right; }
+  .fdot-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(245,239,228,0.66); }
+
+  /* swatch rail + scroll arrows (generic, used when colours > visible) */
+  .swatches { display: flex; align-items: center; gap: 16px; }
+  /* horizontal clip for paging, but vertical headroom so the hover-lift
+     (translateY) + glow shadow of a chip is not cut off at the top */
+  .swatch-rail { overflow: hidden; max-width: min(92vw, 820px);
+    padding: 26px 0 14px; margin: -26px 0 -14px; }
+  .swatch-row { transition: transform .45s cubic-bezier(.5,0,.2,1); }
+  .sw-arrow { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+    background: rgba(20,16,14,0.55); border: 1px solid rgba(245,239,228,0.24); color: var(--ivory); font-size: 20px;
+    cursor: pointer; transition: border-color .25s ease, background .25s ease, opacity .25s ease; backdrop-filter: blur(6px); }
+  .sw-arrow:hover { border-color: var(--gold); color: var(--gold); }
+  .sw-arrow.off { opacity: 0.25; pointer-events: none; }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript style="display:none;"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-542NRLV2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <div class="world">
+    <div class="backdrop"></div>
+    <div id="stage"></div>
+  </div>
+  <div class="atmos"></div>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div style="text-align:center">
+      <div class="loader-mark">RIVANO</div>
+      <div class="loader-txt">Preparing the studio</div>
+      <div class="loader-bar"><i></i></div>
+    </div>
+  </div>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <a class="back reveal" href="showroom.html#enter">
+      <svg viewBox="0 0 24 12"><path d="M22 6 H3 M9 1 L3 6 l6 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Showroom
+    </a>
+    <div class="brand reveal">
+      <div class="bn">RIVANO STONE</div>
+      <div class="bs">ANDESITE STUDIO</div>
+    </div>
+    <button class="viewtex-link reveal" id="viewTexBtn">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" stroke-linecap="round"/><path d="M16 16 L21 21" stroke-linecap="round"/></svg>
+      View Texture
+    </button>
+  </header>
+
+  <!-- LEFT PANEL -->
+  <aside class="panel panel-l">
+    <div class="eyebrow reveal">Natural Stone</div>
+    <h1 class="title reveal" id="stoneTitle">Andesite<br><em>Black</em></h1>
+    <div class="spec reveal"><div class="k">Origin</div><div class="v" id="specOrigin">Indonesia</div></div>
+    <div class="spec reveal"><div class="k">Type</div><div class="v">Andesite</div></div>
+    <div class="spec reveal"><div class="k">Finish</div><div class="v" id="specFinish">Natural Polished</div></div>
+    <div class="spec reveal"><div class="k">Thickness</div><div class="v">1 cm</div></div>
+    <div class="spec reveal"><div class="k">Sizes</div><div class="v">10 × 10 CM</div></div>
+    <div class="spec reveal"><div class="k">Applications</div><div class="v" id="specApplications">INDOOR / OUTDOOR</div></div>
+  </aside>
+
+  <!-- HINT -->
+  <div class="hint">
+    <svg viewBox="0 0 40 14"><path d="M6 7 H34 M11 2 L6 7 l5 5 M29 2 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Drag to rotate
+  </div>
+
+  <!-- BOTTOM SWATCHES -->
+  <div class="swatches">
+    <button class="sw-arrow off" id="swPrev" aria-label="Previous">‹</button>
+    <div class="swatch-rail"><div class="swatch-row reveal" id="swatchRow"></div></div>
+    <button class="sw-arrow" id="swNext" aria-label="Next">›</button>
+  </div>
+
+  <!-- REBORD CIRCLE (right) -->
+  <div class="finish-dots hidden" id="finishDots">
+    <button class="fdot" data-finish="rebord"><span class="fdot-ring"><span id="dotRebord" style="background-size: cover; background-position: right center"></span></span><span class="fdot-label">Rebord</span></button>
+  </div>
+
+  <!-- TEXTURE VIEWER -->
+  <div class="texview" id="texview">
+    <div class="texview-stage" id="tvStage">
+      <img class="texview-img" id="tvImg" alt="" draggable="false">
+    </div>
+    <div class="texview-veil"></div>
+
+    <div class="texview-top">
+      <button class="tv-pill" id="tvBack">
+        <svg viewBox="0 0 24 12"><path d="M22 6 H3 M9 1 L3 6 l6 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to Specimen
+      </button>
+      <div class="tv-title">
+        <div class="tn" id="tvName">Batik</div>
+        <div class="ts">Texture Viewer</div>
+      </div>
+      <div class="tv-corner">
+        <button class="tv-round" id="tvInfoBtn"><span class="ic">i</span></button>
+        <span class="lbl">Info</span>
+      </div>
+    </div>
+
+    <div class="tv-info" id="tvInfo">
+      <h4 id="tvInfoName">Batik</h4>
+      <div class="ir"><span class="ik">Type</span><span class="iv">Andesite</span></div>
+      <div class="ir"><span class="ik">Finish</span><span class="iv" id="tvFinish">Natural Polished</span></div>
+      <div class="ir"><span class="ik">Thickness</span><span class="iv">1 cm</span></div>
+      <div class="ir"><span class="ik">Origin</span><span class="iv" id="tvOrigin">Indonesia</span></div>
+    </div>
+
+    <div class="tv-zoom">
+      <button id="tvPlus" aria-label="Zoom in">+</button>
+      <div class="tv-readout"><div class="rl">Zoom</div><div class="rv" id="tvPct">100%</div></div>
+      <button id="tvMinus" aria-label="Zoom out">−</button>
+    </div>
+
+    <div class="tv-presets" id="tvPresets">
+      <button data-z="1" class="on">100%</button>
+      <button data-z="2">Rebord</button>
+    </div>
+
+    <div class="tv-fit">
+      <button class="tv-tool" id="tvFit">
+        <svg viewBox="0 0 24 24"><path d="M4 9 V5 H8 M16 5 H20 V9 M20 15 V19 H16 M8 19 H4 V15" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="tl">Fit</span>
+      </button>
+    </div>
+    <div class="tv-pan">
+      <button class="tv-tool" id="tvPan">
+        <svg viewBox="0 0 24 24"><path d="M12 3 v8 M12 11 V7 a1.6 1.6 0 0 1 3.2 0 v4 M15.2 11 V8.5 a1.6 1.6 0 0 1 3.2 0 V13 c0 3.5 -2 6.5 -6 6.5 c-2.4 0 -3.6 -1 -5 -3 l-2.2 -3.4 a1.5 1.5 0 0 1 2.5 -1.6 L9 12.5 M8.8 11 V6.5 a1.6 1.6 0 0 1 3.2 0 V11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="tl">Pan</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script>
+  window.STONE = {
+    "name": "Andesite",
+    "defaultKey": "black",
+    "baseSlab": "assets/models/white-calacatta.glb",
+    "slabTarget": 1.5,
+    "visible": 5,
+    "specs": {
+      "type": "Andesite",
+      "finish": "Natural Polished",
+      "thickness": "1 cm",
+      "sizes": "10 × 10 cm",
+      "applications": "INDOOR / OUTDOOR"
+    },
+    "colors": [
+      {
+        "key": "black",
+        "label": "Black",
+        "origin": "Indonesia",
+        "swatch": "assets/textures/andesite-black-100.jpg",
+        "hd": "assets/textures/andesite-black-100.jpg",
+        "levels": [
+          "assets/textures/andesite-black-100.jpg",
+          "assets/textures/andesite-black-rebord.jpg"
+        ],
+        "rebord": "assets/textures/andesite-black-rebord.jpg",
+        "model": "assets/models/andesite-black.glb"
+      },
+      {
+        "key": "darkgrey-polish",
+        "label": "Dark Grey Polish",
+        "origin": "Indonesia",
+        "swatch": "assets/textures/andesite-darkgrey-polish-100.jpg",
+        "hd": "assets/textures/andesite-darkgrey-polish-100.jpg",
+        "levels": [
+          "assets/textures/andesite-darkgrey-polish-100.jpg",
+          "assets/textures/andesite-darkgrey-polish-rebord.jpg"
+        ],
+        "rebord": "assets/textures/andesite-darkgrey-polish-rebord.jpg",
+        "model": "assets/models/andesite-darkgrey-polish.glb"
+      },
+      {
+        "key": "darkgrey-rough",
+        "label": "Dark Grey Rough",
+        "origin": "Indonesia",
+        "swatch": "assets/textures/andesite-darkgrey-rough-100.jpg",
+        "hd": "assets/textures/andesite-darkgrey-rough-100.jpg",
+        "levels": [
+          "assets/textures/andesite-darkgrey-rough-100.jpg",
+          "assets/textures/andesite-darkgrey-rough-rebord.jpg"
+        ],
+        "rebord": "assets/textures/andesite-darkgrey-rough-rebord.jpg",
+        "model": "assets/models/andesite-darkgrey-rough.glb"
+      },
+      {
+        "key": "green-sukabumi",
+        "label": "Green Sukabumi",
+        "origin": "Indonesia",
+        "applicationsLabel": "POOL",
+        "swatch": "assets/textures/andesite-green-sukabumi-100.jpg",
+        "hd": "assets/textures/andesite-green-sukabumi-100.jpg",
+        "levels": [
+          "assets/textures/andesite-green-sukabumi-100.jpg",
+          "assets/textures/andesite-green-sukabumi-rebord.jpg"
+        ],
+        "rebord": "assets/textures/andesite-green-sukabumi-rebord.jpg",
+        "model": "assets/models/andesite-green-sukabumi.glb"
+      },
+      {
+        "key": "grey-andesite",
+        "label": "Grey Andesite",
+        "origin": "Indonesia",
+        "swatch": "assets/textures/andesite-grey-andesite-100.jpg",
+        "hd": "assets/textures/andesite-grey-andesite-100.jpg",
+        "levels": [
+          "assets/textures/andesite-grey-andesite-100.jpg",
+          "assets/textures/andesite-grey-andesite-rebord.jpg"
+        ],
+        "rebord": "assets/textures/andesite-grey-andesite-rebord.jpg",
+        "model": "assets/models/andesite-grey-andesite.glb"
+      },
+      {
+        "key": "grey",
+        "label": "Grey",
+        "origin": "Indonesia",
+        "swatch": "assets/textures/andesite-grey-100.jpg",
+        "hd": "assets/textures/andesite-grey-100.jpg",
+        "levels": [
+          "assets/textures/andesite-grey-100.jpg",
+          "assets/textures/andesite-grey-rebord.jpg"
+        ],
+        "rebord": "assets/textures/andesite-grey-rebord.jpg",
+        "model": "assets/models/andesite-grey.glb"
+      },
+      {
+        "key": "light-grey",
+        "label": "Light Grey",
+        "origin": "Indonesia",
+        "swatch": "assets/textures/andesite-light-grey-100.jpg",
+        "hd": "assets/textures/andesite-light-grey-100.jpg",
+        "levels": [
+          "assets/textures/andesite-light-grey-100.jpg",
+          "assets/textures/andesite-light-grey-rebord.jpg"
+        ],
+        "rebord": "assets/textures/andesite-light-grey-rebord.jpg",
+        "model": "assets/models/andesite-light-grey.glb"
+      }
+    ]
+  };
+    </script>
+  <script type="module" src="studio-scene.js"></script>
+  <script src="studio-ui.js"></script>
+</body>
+</html>

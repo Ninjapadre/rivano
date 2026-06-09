@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-542NRLV2');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  /* On smartphone, send visitors to the dedicated mobile experience.
+     Add ?desktop to the URL to force the desktop layout. */
+  (function () {
+    try {
+      var forceDesktop = location.search.indexOf('desktop') !== -1;
+      var isPhone = window.matchMedia('(max-width: 760px)').matches;
+      if (isPhone && !forceDesktop) {
+        location.replace('Mobile%20Hero.html');
+      }
+    } catch (e) {}
+  })();
+</script>
+<title>Rivano Stone — Indonesian Natural Stone</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2315110F'/%3E%3Ctext x='32' y='34' font-family='Georgia,serif' font-size='40' fill='%23BFA46A' text-anchor='middle' dominant-baseline='central'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F5EFE4;
+    --cream: #EDE7DB;
+    --soft-black: #15110F;
+    --panel: #1C1714;
+    --gold: #BFA46A;
+    --terra: #B0703E;
+    --serif: "Cormorant Garamond", "Times New Roman", serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: var(--sans); color: var(--ivory); background: var(--soft-black); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  a { color: inherit; text-decoration: none; }
+
+  .stage { position: relative; min-height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+  /* ---------- BACKGROUND ---------- */
+  .bg { position: absolute; inset: 0; z-index: 0; }
+  .bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; display: block; }
+  /* scrims for legibility */
+  .scrim-left { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: linear-gradient(100deg, rgba(21,17,15,0.94) 0%, rgba(21,17,15,0.78) 26%, rgba(21,17,15,0.28) 48%, rgba(21,17,15,0) 66%); }
+  .scrim-top { position: absolute; left: 0; right: 0; top: 0; height: 200px; z-index: 1; pointer-events: none;
+    background: linear-gradient(to bottom, rgba(21,17,15,0.72) 0%, rgba(21,17,15,0) 100%); }
+  .scrim-bottom { position: absolute; left: 0; right: 0; bottom: 0; height: 360px; z-index: 1; pointer-events: none;
+    background: linear-gradient(to top, rgba(21,17,15,0.92) 0%, rgba(21,17,15,0.45) 42%, rgba(21,17,15,0) 100%); }
+
+  /* ---------- TOP BAR ---------- */
+  .topbar { position: relative; z-index: 5; display: flex; align-items: center; gap: 40px;
+    padding: 30px clamp(28px, 4vw, 64px); }
+  .brand { flex: 0 0 auto; display: flex; align-items: center; gap: 14px; }
+  .brand-mark { width: 38px; height: 38px; flex: 0 0 auto; color: var(--gold); }
+  .brand-text { line-height: 1; }
+  .brand-name { display: block; white-space: nowrap; font-family: var(--serif); font-weight: 500; font-size: 23px; letter-spacing: 0.2em; color: var(--ivory); }
+  .brand-name b { font-weight: 500; }
+  .brand-sub { display: block; white-space: nowrap; font-size: 9px; letter-spacing: 0.34em; color: rgba(245,239,228,0.62); margin-top: 5px; }
+
+  .mainnav { display: flex; align-items: center; gap: clamp(20px, 2.4vw, 40px); margin: 0 auto; }
+  .mainnav a { font-size: 14px; font-weight: 400; color: rgba(245,239,228,0.84); letter-spacing: 0.01em; transition: color .2s ease; position: relative; padding: 6px 0; }
+  .mainnav a:hover { color: var(--ivory); }
+  .mainnav a.active { color: var(--ivory); }
+  .mainnav a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: var(--gold); }
+
+  .topbar-right { display: flex; align-items: center; gap: 22px; }
+  .lang { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: rgba(245,239,228,0.84); cursor: pointer; }
+  .lang svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.3; }
+  .btn-cat { white-space: nowrap; display: inline-flex; align-items: center; gap: 10px; padding: 12px 22px; border: 1px solid rgba(191,164,106,0.6); border-radius: 40px; color: var(--ivory); font-size: 12px; letter-spacing: 0.12em; transition: background .25s ease, border-color .25s ease; }
+  .btn-cat:hover { background: rgba(191,164,106,0.14); border-color: var(--gold); }
+  .btn-cat svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.4; }
+  .btn-sample { white-space: nowrap; display: inline-flex; align-items: center; gap: 10px; padding: 12px 22px; border-radius: 40px; background: var(--terra); border: 1px solid var(--terra); color: var(--ivory); font-size: 12px; letter-spacing: 0.12em; transition: background .25s ease, border-color .25s ease, transform .2s ease; }
+  .btn-sample:hover { background: #9c5f31; border-color: #9c5f31; transform: translateY(-1px); }
+  .btn-sample svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.4; }
+
+  /* ---------- HERO ---------- */
+  .hero { position: relative; z-index: 4; flex: 1 1 auto; display: flex; align-items: center;
+    padding: 10px clamp(28px, 4vw, 64px) 30px clamp(48px, 6vw, 104px); }
+  .hero-copy { max-width: 720px; }
+  .eyebrow { display: flex; align-items: center; gap: 16px; font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 30px; }
+  .eyebrow::before { content: ""; width: 44px; height: 1px; background: var(--gold); opacity: 0.8; }
+  h1 { white-space: nowrap; font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 4vw, 64px); line-height: 1.05; letter-spacing: -0.012em; margin: 0; color: var(--ivory);
+    text-shadow: 0 2px 30px rgba(21,17,15,0.6); }
+  h1 .em { color: var(--gold); font-style: italic; font-weight: 500; }
+  .lede { font-size: 17px; font-weight: 300; line-height: 1.7; color: rgba(245,239,228,0.82); margin: 30px 0 40px; max-width: 430px; }
+
+  .cta-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 0.06em; padding: 18px 30px; transition: all .25s ease; cursor: pointer; }
+  .btn-primary { background: var(--terra); color: var(--ivory); }
+  .btn-primary:hover { background: #9c5f31; transform: translateY(-1px); }
+  .btn-primary svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 1.5; transition: transform .25s ease; }
+  .btn-primary:hover svg { transform: translateX(4px); }
+  .btn-ghost { background: rgba(245,239,228,0.04); color: var(--ivory); border: 1px solid rgba(245,239,228,0.36); }
+  .btn-ghost:hover { border-color: var(--ivory); background: rgba(245,239,228,0.1); }
+  .btn-ghost .play { width: 20px; height: 20px; border-radius: 50%; border: 1px solid currentColor; display: inline-flex; align-items: center; justify-content: center; }
+  .btn-ghost .play svg { width: 9px; height: 9px; fill: currentColor; stroke: none; margin-left: 1px; }
+
+  /* ---------- SCROLL TAG ---------- */
+  .scroll-tag { position: absolute; left: clamp(16px, 2.2vw, 30px); top: 50%; transform: translateY(-50%) rotate(180deg); z-index: 5;
+    writing-mode: vertical-rl; display: flex; align-items: center; gap: 18px; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(245,239,228,0.55); }
+  .scroll-tag::after { content: ""; width: 1px; height: 54px; background: rgba(245,239,228,0.4); }
+
+  /* ---------- CATEGORY STRIP ---------- */
+  .cat-strip { position: relative; z-index: 4; display: flex; gap: 2px; padding: 0 clamp(14px, 2vw, 26px) clamp(14px, 2vw, 26px); align-items: stretch; }
+  .cat { position: relative; flex: 1 1 0; min-width: 0; height: clamp(118px, 12vw, 150px); overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; transition: transform .3s ease; }
+  .cat img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; transition: transform .5s ease; }
+  .cat::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(21,17,15,0.85) 0%, rgba(21,17,15,0.25) 60%, rgba(21,17,15,0.1) 100%); }
+  .cat:hover img { transform: scale(1.06); }
+  .cat-label { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 500; color: var(--ivory); }
+  .cat-label svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.4; flex: 0 0 auto; opacity: 0.85; }
+  .cat.active { outline: 1px solid var(--gold); outline-offset: -1px; }
+  .cat.active::before { content: ""; position: absolute; inset: 0; z-index: 2; border: 1px solid rgba(191,164,106,0.5); pointer-events: none; }
+
+  .cat-showroom { flex: 0 0 clamp(150px, 13vw, 184px); background: rgba(28,23,20,0.78); backdrop-filter: blur(2px); align-items: center; justify-content: center; gap: 14px; }
+  .cat-showroom::after { display: none; }
+  .cat-showroom .play-circle { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(245,239,228,0.55); display: flex; align-items: center; justify-content: center; transition: border-color .25s ease, background .25s ease; }
+  .cat-showroom:hover .play-circle { border-color: var(--gold); background: rgba(191,164,106,0.12); }
+  .cat-showroom .play-circle svg { width: 13px; height: 13px; fill: var(--ivory); stroke: none; margin-left: 2px; }
+  .cat-showroom .sr-label { position: relative; z-index: 2; text-align: center; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,239,228,0.82); line-height: 1.5; }
+
+  @media (max-width: 1080px) {
+    .mainnav { display: none; }
+    .cat-strip { overflow-x: auto; }
+    .cat { flex: 0 0 160px; }
+    .cat-showroom { flex: 0 0 150px; }
+  }
+  @media (max-width: 760px) {
+    .topbar { flex-wrap: wrap; gap: 14px 16px; padding-top: 22px; padding-bottom: 8px; }
+    .topbar-right { margin-left: auto; gap: 12px; }
+    .btn-sample, .btn-cat { padding: 10px 16px; font-size: 11px; letter-spacing: 0.08em; }
+  }
+  @media (max-width: 640px) {
+    .topbar-right .lang { display: none; }
+    .scroll-tag { display: none; }
+  }
+
+  /* ---------- TRUST BAR ---------- */
+  .trust { position: relative; overflow: hidden; padding: clamp(90px, 11vw, 170px) 0; background: var(--soft-black); }
+  .trust-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; }
+  .trust-band { position: relative; z-index: 2; background: rgba(14,11,10,0.93);
+    border-top: 1px solid rgba(245,239,228,0.06); border-bottom: 1px solid rgba(191,164,106,0.22);
+    box-shadow: 0 -30px 60px rgba(21,17,15,0.55), 0 30px 60px rgba(21,17,15,0.55);
+    padding: clamp(50px, 5.5vw, 84px) clamp(28px, 4vw, 64px); }
+  .trust-grid { max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
+  .pillar { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 6px clamp(10px, 1.6vw, 28px); }
+  .pillar + .pillar::before { content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: rgba(245,239,228,0.12); }
+  .pillar-icon { width: 46px; height: 46px; color: var(--gold); margin-bottom: 26px; }
+  .pillar-icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+  .pillar-title { white-space: nowrap; font-family: var(--serif); font-weight: 500; font-size: 17px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ivory); margin: 0 0 16px; }
+  .pillar-text { font-size: 14px; font-weight: 300; line-height: 1.7; color: rgba(245,239,228,0.6); margin: 0; max-width: 230px; }
+  @media (max-width: 880px) {
+    .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 48px 0; }
+    .pillar:nth-child(3)::before { display: none; }
+    .pillar-title { white-space: normal; }
+  }
+  @media (max-width: 520px) {
+    .trust-grid { grid-template-columns: 1fr; gap: 44px; }
+    .pillar::before { display: none !important; }
+  }
+
+  /* ---------- VIRTUAL SHOWROOM ---------- */
+  .showroom { position: relative; min-height: 88vh; display: flex; align-items: center; overflow: hidden; background: var(--soft-black); }
+  .show-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; }
+  .show-scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: linear-gradient(95deg, rgba(14,11,10,0.97) 0%, rgba(14,11,10,0.9) 28%, rgba(14,11,10,0.35) 46%, rgba(14,11,10,0) 60%); }
+  .show-inner { position: relative; z-index: 2; width: 100%; padding: clamp(56px, 6vw, 96px) clamp(28px, 4vw, 64px) clamp(40px, 4vw, 64px) clamp(48px, 6vw, 104px); }
+  .show-eyebrow { display: flex; align-items: center; gap: 16px; font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 26px; }
+  .show-eyebrow::before { content: ""; width: 44px; height: 1px; background: var(--gold); opacity: 0.8; }
+  .show-title { font-family: var(--serif); font-weight: 400; font-size: clamp(50px, 5.6vw, 92px); line-height: 0.98; letter-spacing: -0.01em; margin: 0; color: var(--ivory); }
+  .show-title .em { color: var(--gold); font-style: italic; font-weight: 500; }
+  .show-text { font-size: 17px; font-weight: 300; line-height: 1.75; color: rgba(245,239,228,0.78); margin: 34px 0 42px; max-width: 430px; }
+  .show-btn { display: inline-flex; align-items: center; gap: 18px; justify-content: center; padding: 17px 30px; background: var(--terra); border: 1px solid var(--terra); color: var(--ivory); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; width: fit-content; transition: background .25s ease, border-color .25s ease, transform .25s ease; }
+  .show-btn:hover { background: #9c5f31; border-color: #9c5f31; transform: translateY(-1px); }
+  .show-btn svg { width: 20px; height: 20px; stroke: var(--ivory); fill: none; stroke-width: 1.4; transition: transform .25s ease; }
+  .show-btn:hover svg { transform: translateX(4px); }
+
+  .show-feats { display: flex; align-items: flex-start; gap: 0; margin-top: clamp(56px, 7vw, 96px); }
+  .feat { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 clamp(20px, 2.4vw, 38px); }
+  .feat:first-child { padding-left: 0; }
+  .feat + .feat::before { content: ""; position: absolute; left: 0; top: 2px; height: 56px; width: 1px; background: rgba(245,239,228,0.14); }
+  .feat-icon { width: 30px; height: 30px; color: var(--gold); margin-bottom: 18px; }
+  .feat-icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+  .feat-label { white-space: nowrap; font-size: 10px; letter-spacing: 0.17em; text-transform: uppercase; line-height: 1.7; color: rgba(245,239,228,0.7); }
+  @media (max-width: 760px) {
+    .show-btn { width: 100%; }
+    .show-feats { flex-wrap: wrap; gap: 32px 0; }
+    .feat { flex: 0 0 50%; align-items: center; text-align: center; padding: 0 10px; }
+    .feat::before { display: none !important; }
+    .feat-label { white-space: normal; }
+  }
+
+  /* ---------- BROWSE BY APPLICATION ---------- */
+  .apps { background: var(--cream); color: var(--soft-black); padding: clamp(56px,6vw,96px) clamp(28px,4vw,64px) clamp(64px,7vw,104px); }
+  .apps-head { max-width: 1360px; margin: 0 auto clamp(34px,3.5vw,52px); display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; }
+  .apps-eyebrow { display: flex; align-items: center; gap: 14px; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--terra); margin-bottom: 22px; }
+  .apps-eyebrow::before { content: ""; width: 40px; height: 1px; background: var(--terra); opacity: 0.7; }
+  .apps-title { font-family: var(--serif); font-weight: 400; font-size: clamp(34px,3.6vw,54px); line-height: 1.0; letter-spacing: -0.01em; margin: 0; color: var(--soft-black); }
+  .apps-title .em { color: var(--terra); font-style: italic; font-weight: 500; }
+  .apps-aside { max-width: 430px; }
+  .apps-text { font-size: 14px; font-weight: 300; line-height: 1.7; color: rgba(21,17,15,0.66); margin: 0 0 18px; }
+  .apps-link { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); }
+  .apps-link svg { width: 18px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.4; transition: transform .25s ease; }
+  .apps-link:hover svg { transform: translateX(4px); }
+  .apps-grid { max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(10px,1.2vw,18px); }
+  .app-card { position: relative; height: clamp(300px,32vw,440px); overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
+  .app-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; transition: transform .6s ease; }
+  .app-card::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(21,17,15,0.86) 0%, rgba(21,17,15,0.2) 52%, rgba(21,17,15,0) 100%); }
+  .app-card:hover img { transform: scale(1.05); }
+  .app-card-body { position: relative; z-index: 2; padding: clamp(20px,1.6vw,28px); }
+  .app-card-title { font-family: var(--serif); font-weight: 500; font-size: clamp(20px,1.5vw,24px); color: var(--ivory); margin: 0 0 12px; }
+  .app-card-link { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(245,239,228,0.85); }
+  .app-card-link svg { width: 16px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.4; transition: transform .25s ease; }
+  .app-card:hover .app-card-link svg { transform: translateX(4px); }
+  @media (max-width: 980px) { .apps-grid { grid-template-columns: repeat(2, 1fr); } .apps-head { align-items: flex-start; } }
+  @media (max-width: 560px) { .apps-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- SAMPLE CTA (See It. Touch It. Specify It.) ---------- */
+  .sample-cta { position: relative; overflow: hidden; background: var(--soft-black); display: flex; align-items: center; justify-content: center; text-align: center; padding: clamp(96px, 13vw, 190px) clamp(28px, 4vw, 64px); }
+  .sample-cta-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; z-index: 0; }
+  .sample-cta::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: radial-gradient(120% 120% at 50% 50%, rgba(21,17,15,0.62) 0%, rgba(21,17,15,0.82) 60%, rgba(21,17,15,0.95) 100%); }
+  .sample-inner { position: relative; z-index: 2; max-width: 760px; display: flex; flex-direction: column; align-items: center; }
+  .sample-eyebrow { display: flex; align-items: center; gap: 16px; font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 30px; }
+  .sample-eyebrow::before, .sample-eyebrow::after { content: ""; width: 44px; height: 1px; background: var(--gold); opacity: 0.8; }
+  .sample-title { font-family: var(--serif); font-weight: 300; font-size: clamp(44px, 5.4vw, 84px); line-height: 1.0; letter-spacing: -0.01em; margin: 0; color: var(--ivory); text-shadow: 0 2px 30px rgba(21,17,15,0.6); }
+  .sample-title .em { color: var(--gold); font-style: italic; font-weight: 500; }
+  .sample-text { font-size: 17px; font-weight: 300; line-height: 1.78; color: rgba(245,239,228,0.78); margin: 34px 0 44px; max-width: 540px; text-shadow: 0 1px 16px rgba(21,17,15,0.5); }
+  .sample-btn { display: inline-flex; align-items: center; gap: 16px; padding: 19px 38px; background: var(--terra); border: 1px solid var(--terra); color: var(--ivory); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; transition: background .25s ease, border-color .25s ease, transform .2s ease; }
+  .sample-btn:hover { background: #9c5f31; border-color: #9c5f31; transform: translateY(-1px); }
+  .sample-btn svg { width: 20px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.6; transition: transform .25s ease; }
+  .sample-btn:hover svg { transform: translateX(4px); }
+  @media (max-width: 560px) { .sample-eyebrow::before, .sample-eyebrow::after { width: 24px; } .sample-btn { width: 100%; justify-content: center; } }
+
+  /* ===================== FOOTER ===================== */
+  .footer { background: var(--soft-black); color: var(--ivory); padding: 92px 56px 36px; }
+  .footer-inner { max-width: 1280px; margin: 0 auto; }
+  .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1.5fr; gap: 40px; }
+  .f-logo { font-family: var(--serif); font-weight: 300; font-size: 40px; letter-spacing: 0.22em; line-height: 1; color: var(--ivory); padding-left: 4px; }
+  .f-logo-sub { font-size: 13px; letter-spacing: 0.46em; color: rgba(245,239,228,0.85); margin-top: 7px; padding-left: 6px; }
+  .f-tagline { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); line-height: 1.7; margin: 30px 0 0; }
+  .f-rule { width: 46px; height: 1px; background: var(--gold); opacity: 0.7; margin: 18px 0; }
+  .f-desc { font-size: 14px; line-height: 1.7; font-weight: 300; color: rgba(245,239,228,0.6); max-width: 290px; margin: 0; }
+  .f-col-title { font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(245,239,228,0.85); margin: 6px 0 0; }
+  .f-col .f-rule { margin: 14px 0 26px; }
+  .f-links { display: flex; flex-direction: column; gap: 15px; }
+  .f-links a { font-size: 15px; font-weight: 300; color: rgba(245,239,228,0.72); transition: color .2s ease, transform .2s ease; width: fit-content; }
+  .f-links a:hover { color: var(--ivory); transform: translateX(3px); }
+  .f-contact-title { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ivory); line-height: 1.5; margin: 0; font-weight: 400; }
+  .f-contact-col .f-rule { margin: 16px 0 26px; }
+  .f-contact { display: flex; flex-direction: column; gap: 22px; }
+  .f-contact-row { display: flex; align-items: center; gap: 16px; }
+  .f-ico { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(191,164,106,0.5); display: flex; align-items: center; justify-content: center; color: var(--gold); }
+  .f-ico svg { width: 17px; height: 17px; stroke: currentColor; fill: none; }
+  .f-contact-row .ct-main { display: block; font-size: 15px; color: var(--ivory); font-weight: 300; }
+  .f-contact-row .ct-sub { display: block; font-size: 12px; letter-spacing: 0.04em; color: rgba(245,239,228,0.45); margin-top: 3px; }
+  .f-bottom { margin-top: 64px; padding-top: 28px; border-top: 1px solid rgba(245,239,228,0.12); display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
+  .f-legal { font-size: 13px; color: rgba(245,239,228,0.55); line-height: 1.9; }
+  .f-legal a { color: rgba(245,239,228,0.55); }
+  .f-legal a:hover { color: var(--ivory); }
+  .f-social { display: flex; align-items: center; gap: 18px; font-size: 13px; color: rgba(245,239,228,0.55); }
+  .f-social .sep { width: 1px; height: 16px; background: rgba(245,239,228,0.2); }
+  .f-social a { display: inline-flex; color: rgba(245,239,228,0.75); transition: color .2s ease; }
+  .f-social a:hover { color: var(--gold); }
+  .f-social svg { width: 19px; height: 19px; fill: none; stroke: currentColor; }
+  @media (max-width: 720px) {
+    .footer { padding: 64px 28px 32px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px 28px; }
+    .f-brand, .f-contact-col { grid-column: 1 / -1; }
+    .f-bottom { flex-direction: column; align-items: flex-start; gap: 18px; }
+  }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript style="display:none;"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-542NRLV2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  <div class="stage" data-screen-label="01 Hero">
+
+    <div class="bg"><img src="assets/web/hero-fond.jpg" alt="Travertine terrace at sunset overlooking an infinity pool and the sea" loading="lazy"></div>
+    <div class="scrim-left"></div>
+    <div class="scrim-top"></div>
+    <div class="scrim-bottom"></div>
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-text">
+          <span class="brand-name">RIVANO <b>STONE</b></span>
+          <span class="brand-sub">INDONESIAN NATURAL STONE</span>
+        </span>
+      </a>
+
+      <nav class="mainnav">
+        <a href="travertine.html" class="active">Collections</a>
+        <a href="#applications">Applications</a>
+        <a href="#projects">Projects</a>
+        <a href="#showroom">Showroom</a>
+      </nav>
+
+      <div class="topbar-right">
+        <a class="btn-sample" href="sample.html">
+          Request Sample
+          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="12" height="12" rx="1"/><rect x="9" y="9" width="11" height="11" rx="1"/></svg>
+        </a>
+        <a class="btn-cat" href="#catalogue">
+          Get Catalogue
+          <svg viewBox="0 0 24 24"><path d="M12 4 V15 M7 11 l5 5 5 -5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 20 H19" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Natural Stone. Timeless Beauty.</div>
+        <h1>Crafted by Nature.<br>Designed for<br><span class="em">Exceptional</span> Spaces.</h1>
+        <p class="lede">Indonesian natural stone, selected at source and crafted for architecture that lasts.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="travertine.html">
+            Explore Collections
+            <svg viewBox="0 0 24 24"><path d="M4 12 H19 M13 6 l6 6 -6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-primary" href="showroom.html">
+            Enter Our Virtual Showroom
+            <svg viewBox="0 0 24 24"><path d="M4 12 H19 M13 6 l6 6 -6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORY STRIP -->
+    <div class="cat-strip">
+      <a class="cat cat-showroom" href="showroom.html">
+        <span class="play-circle"><svg viewBox="0 0 24 24"><path d="M7 5 L19 12 L7 19 Z"/></svg></span>
+        <span class="sr-label">Virtual<br>Showroom</span>
+      </a>
+      <a class="cat active" href="volcanic-stone.html">
+        <img src="assets/web/volcanic-stone-pool-surrounds.jpg" alt="" loading="lazy">
+        <span class="cat-label">Pool Surround
+          <svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <a class="cat" href="travertine.html">
+        <img src="assets/web/travertine-terraces.jpg" alt="" loading="lazy">
+        <span class="cat-label">Terraces
+          <svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <a class="cat" href="limestone.html">
+        <img src="assets/web/limestone-wall-cladding.jpg" alt="" loading="lazy">
+        <span class="cat-label">Cladding
+          <svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <a class="cat" href="travertine.html">
+        <img src="assets/web/travertine-landscaping.jpg" alt="" loading="lazy">
+        <span class="cat-label">Landscaping
+          <svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <a class="cat" href="marble.html">
+        <img src="assets/web/marble-bathrooms.jpg" alt="" loading="lazy">
+        <span class="cat-label">Bathrooms
+          <svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <a class="cat" href="marble.html">
+        <img src="assets/web/marble-kitchen-islands.jpg" alt="" loading="lazy">
+        <span class="cat-label">Kitchens
+          <svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ============ VIRTUAL SHOWROOM ============ -->
+  <section class="showroom" data-screen-label="03 Showroom" id="showroom">
+    <img class="show-bg" src="assets/web/showroom-entrance.jpg" alt="Rivano showroom storefront entrance" loading="lazy">
+    <div class="show-scrim"></div>
+    <div class="show-inner">
+      <div class="show-eyebrow">Virtual Showroom</div>
+      <h2 class="show-title">Visualize.<br>Compare.<br><span class="em">Decide.</span></h2>
+      <p class="show-text" style="line-height: 1.75; width: 259px">Visualize materials, compare textures, and discover how each stone transforms architectural spaces.</p>
+      <a class="show-btn" href="showroom.html">
+        Enter Virtual Showroom
+        <svg viewBox="0 0 24 24"><path d="M4 12 H19 M13 6 l6 6 -6 6"/></svg>
+      </a>
+
+      <div class="show-feats">
+        <div class="feat">
+          <span class="feat-icon"><svg viewBox="0 0 32 32"><path d="M3 16 C7 9 25 9 29 16 C25 23 7 23 3 16 Z"/><circle cx="16" cy="16" r="4"/></svg></span>
+          <span class="feat-label">High-Resolution<br>Preview</span>
+        </div>
+        <div class="feat">
+          <span class="feat-icon"><svg viewBox="0 0 32 32"><path d="M16 5 L27 11 V21 L16 27 L5 21 V11 Z"/><path d="M5 11 L16 17 L27 11 M16 17 V27"/></svg></span>
+          <span class="feat-label">3D Immersive</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BROWSE BY APPLICATION ============ -->
+  <section class="apps" id="applications" data-screen-label="04 Applications">
+    <div class="apps-head">
+      <div>
+        <div class="apps-eyebrow">Browse by Application</div>
+        <h2 class="apps-title">Designed for <span class="em">Every</span> Space.</h2>
+      </div>
+      <div class="apps-aside">
+        <p class="apps-text">From pool surrounds to kitchens, our natural stone brings beauty and performance to every detail.</p>
+        <a class="apps-link" href="travertine.html">View All Applications
+          <svg viewBox="0 0 24 24"><path d="M4 12 H19 M13 6 l6 6 -6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="apps-grid">
+      <a class="app-card" href="volcanic-stone.html">
+        <img src="assets/web/volcanic-stone-pool-surrounds.jpg" alt="Pool surround in natural stone" loading="lazy">
+        <div class="app-card-body">
+          <h3 class="app-card-title">Pool Surround</h3>
+          <span class="app-card-link">View Collection <svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+      <a class="app-card" href="travertine.html">
+        <img src="assets/web/travertine-terraces.jpg" alt="Stone terrace" loading="lazy">
+        <div class="app-card-body">
+          <h3 class="app-card-title">Terraces</h3>
+          <span class="app-card-link">View Collection <svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+      <a class="app-card" href="limestone.html">
+        <img src="assets/web/limestone-wall-cladding.jpg" alt="Stone wall cladding" loading="lazy">
+        <div class="app-card-body">
+          <h3 class="app-card-title">Cladding</h3>
+          <span class="app-card-link">View Collection <svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+      <a class="app-card" href="marble.html">
+        <img src="assets/web/marble-bathrooms.jpg" alt="Stone bathroom" loading="lazy">
+        <div class="app-card-body">
+          <h3 class="app-card-title">Bathrooms</h3>
+          <span class="app-card-link">View Collection <svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+      <a class="app-card" href="marble.html">
+        <img src="assets/web/marble-kitchen-islands.jpg" alt="Stone kitchen island" loading="lazy">
+        <div class="app-card-body">
+          <h3 class="app-card-title">Kitchens</h3>
+          <span class="app-card-link">View Collection <svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ SAMPLE CTA ============ -->
+  <section class="sample-cta" id="sample" data-screen-label="05 Request Sample">
+    <img class="sample-cta-bg" src="assets/web/travertine-angle.jpg" alt="Close detail of natural stone texture" loading="lazy">
+    <div class="sample-inner">
+      <div class="sample-eyebrow">Material Samples</div>
+      <h2 class="sample-title">See It. Touch It.<br><span class="em">Specify It.</span></h2>
+      <p class="sample-text">Choosing natural stone from a screen only tells part of the story. Request a physical sample to experience the true color, texture and finish before making your final selection.</p>
+      <a class="sample-btn" href="sample.html">
+        Request Sample
+        <svg viewBox="0 0 24 12"><path d="M2 6 H21 M15 1 l6 5 -6 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="f-brand">
+          <div class="f-logo">RIVANO</div>
+          <div class="f-logo-sub">STONE</div>
+          <p class="f-tagline">Indonesian Natural Stone<br>For Timeless Architecture</p>
+          <div class="f-rule"></div>
+          <p class="f-desc">Rivano Stone presents a curated selection of premium natural stones, sourced from Indonesia and crafted for exceptional architectural spaces.</p>
+        </div>
+
+        <div class="f-col">
+          <h4 class="f-col-title">Collections</h4>
+          <div class="f-rule"></div>
+          <nav class="f-links">
+            <a href="travertine.html">Travertine</a>
+            <a href="limestone.html">Limestone</a>
+            <a href="marble.html">Marble</a>
+            <a href="quartzite.html">Quartzite</a>
+            <a href="volcanic-stone.html">Volcanic Stone</a>
+          </nav>
+        </div>
+
+        <div class="f-col">
+          <h4 class="f-col-title">Applications</h4>
+          <div class="f-rule"></div>
+          <nav class="f-links">
+            <a href="travertine.html">Terraces</a>
+            <a href="marble.html">Bathrooms</a>
+            <a href="limestone.html">Wall Cladding</a>
+            <a href="volcanic-stone.html">Pool Surround</a>
+          </nav>
+        </div>
+
+        <div class="f-col">
+          <h4 class="f-col-title">Company</h4>
+          <div class="f-rule"></div>
+          <nav class="f-links">
+            <a href="index.html">About Rivano</a>
+            <a href="index.html">Sustainability</a>
+            <a href="index.html">Our Process</a>
+            <a href="sample.html">Request a Sample</a>
+            <a href="index.html#applications">Projects</a>
+            <a href="index.html#showroom">Contact</a>
+          </nav>
+        </div>
+
+        <div class="f-contact-col">
+          <p class="f-contact-title">Let's Create<br>Something Timeless</p>
+          <div class="f-rule"></div>
+          <div class="f-contact">
+            <a class="f-contact-row" href="https://wa.me/6281359496795" target="_blank" rel="noopener">
+              <span class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M6 4 h3 l1.5 4 -2 1.4 a10 10 0 0 0 4.6 4.6 l1.4 -2 4 1.5 v3 a2 2 0 0 1 -2.2 2 A15 15 0 0 1 5 6.2 2 2 0 0 1 6 4 Z" stroke-linejoin="round"></path></svg></span>
+              <span><span class="ct-main">+62 813 5949 6795</span><span class="ct-sub">WhatsApp</span></span>
+            </a>
+            <a class="f-contact-row" href="mailto:info@rivanostone.id">
+              <span class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1.5"></rect><path d="M3.5 7 L12 13 L20.5 7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+              <span><span class="ct-main">info@rivanostone.id</span><span class="ct-sub">Email</span></span>
+            </a>
+            <div class="f-contact-row">
+              <span class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 21 c5 -5 7 -8.2 7 -11 a7 7 0 0 0 -14 0 c0 2.8 2 6 7 11 Z" stroke-linejoin="round"></path><circle cx="12" cy="10" r="2.4"></circle></svg></span>
+              <span><span class="ct-main">Bali, Indonesia</span></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="f-bottom">
+        <div class="f-legal">
+          © 2026 Rivano Stone. All rights reserved.<br>
+          <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms &amp; Conditions</a>
+        </div>
+        <div class="f-social">
+          <span>Follow Us</span>
+          <span class="sep"></span>
+          <a href="https://www.instagram.com/rivano.stone?utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"></circle></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
