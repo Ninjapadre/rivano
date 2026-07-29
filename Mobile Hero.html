@@ -47,93 +47,71 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .device::-webkit-scrollbar { display: none; }
   }
 
-  /* ===== HERO ===== */
-  .hero { position: relative; display: flex; flex-direction: column; min-height: 100vh; }
+  /* ===== HERO (light) ===== */
+  .hero { position: relative; display: flex; flex-direction: column; min-height: 100vh;
+    background: #F4EFE6; color: #17140F; }
   @media (min-width: 480px) { .hero { min-height: 844px; } }
 
-  .hero-bg { position: absolute; inset: 0; z-index: 0; }
-  .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 64% 18%; }
-  /* warm grade + legibility scrims */
-  .hero-grade { position: absolute; inset: 0; z-index: 1; pointer-events: none;
-    background: linear-gradient(180deg,
-      rgba(20,14,10,0.66) 0%,
-      rgba(20,14,10,0.10) 16%,
-      rgba(24,16,10,0.04) 34%,
-      rgba(22,15,11,0.52) 54%,
-      rgba(17,12,10,0.88) 72%,
-      rgba(12,9,8,0.97) 90%,
-      #0b0908 100%); }
-  .hero-warm { position: absolute; inset: 0; z-index: 1; pointer-events: none;
-    mix-blend-mode: soft-light; opacity: 0.5;
-    background: linear-gradient(180deg, rgba(176,112,62,0) 30%, rgba(176,112,62,0.55) 62%, rgba(120,74,40,0.35) 100%); }
+  .hero-img-side { position: absolute; inset: 0; z-index: 0; }
+  .hero-img-side img { width: 100%; height: 100%; object-fit: cover; object-position: 100% 0%; }
 
   /* ===== TOP BAR ===== */
   .topbar { position: relative; z-index: 5; display: flex; align-items: center; justify-content: space-between;
     padding: 22px 20px 10px; gap: 12px; }
   .hicon { flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%;
-    border: 1px solid rgba(245,239,228,0.45); background: rgba(20,15,12,0.18); backdrop-filter: blur(3px);
-    display: flex; align-items: center; justify-content: center; color: var(--ivory); cursor: pointer;
+    border: 1px solid rgba(23,20,15,0.16); background: rgba(255,255,255,0.5); backdrop-filter: blur(3px);
+    display: flex; align-items: center; justify-content: center; color: #17140F; cursor: pointer;
     transition: border-color .25s ease, background .25s ease; }
   .hicon:hover { border-color: var(--gold); background: rgba(191,164,106,0.14); }
   .hicon svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 1.4; }
   .brand { text-align: center; line-height: 1; }
   .brand-name { display: block; white-space: nowrap; font-family: var(--serif); font-weight: 500; font-size: 19px;
-    letter-spacing: 0.2em; color: var(--ivory); text-indent: 0.2em; }
+    letter-spacing: 0.2em; color: #17140F; text-indent: 0.2em; }
   .brand-sub { display: block; white-space: nowrap; font-size: 8.5px; letter-spacing: 0.32em; color: var(--gold);
     margin-top: 7px; text-indent: 0.32em; }
 
   /* ===== HERO COPY ===== */
-  .hero-spacer { flex: 1 1 auto; min-height: 30px; }
-  .hero-copy { position: relative; z-index: 4; padding: 0 22px; }
-  .eyebrow { display: flex; align-items: center; gap: 14px; font-size: 10.5px; letter-spacing: 0.28em;
-    text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
-  .eyebrow::before { content: ""; width: 30px; height: 1px; background: var(--gold); opacity: 0.85; flex: 0 0 auto; }
-  h1 { font-family: var(--serif); font-weight: 400; font-size: 44px; line-height: 1.08;
-    letter-spacing: -0.01em; margin: 0; color: var(--ivory); text-shadow: 0 2px 26px rgba(12,9,8,0.7); }
+  .hero-spacer { flex: 0 1 auto; min-height: 100px; }
+  .hero-copy { position: relative; z-index: 4; padding: 0 22px; margin-top: -50px; }
+  h1 { font-family: var(--serif); font-weight: 700; font-size: 32px; line-height: 1.14;
+    letter-spacing: -0.01em; margin: 0; color: #17140F; }
   h1 .em { color: var(--gold); font-style: italic; font-weight: 500; }
-  .lede { font-size: 16px; font-weight: 300; line-height: 1.68; color: rgba(245,239,228,0.86);
-    margin: 22px 0 28px; max-width: 330px; text-shadow: 0 1px 14px rgba(12,9,8,0.6); }
+  .hero-rule { width: 64px; height: 3px; background: var(--gold); opacity: 0.9; margin: 26px 0; }
+  .lede { font-size: 11px; font-weight: 400; line-height: 1.7; color: rgba(23,20,15,0.75);
+    margin: 0 0 30px; max-width: 300px; }
 
   /* ===== CTA BUTTONS ===== */
-  .cta-col { display: flex; flex-direction: column; gap: 11px; }
-  .btn { display: flex; align-items: center; justify-content: space-between; gap: 16px;
-    padding: 15px 18px; background: var(--terra); color: var(--ivory);
-    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;
+  .cta-col { display: flex; flex-direction: column; gap: 8px; max-width: 50%; }
+  .btn { display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    padding: 8px 10px; background: #C6913F; color: #fff;
+    font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
     transition: background .25s ease, transform .2s ease; }
-  .btn:hover { background: #9c5f31; transform: translateY(-1px); }
+  .btn:hover { background: #b07f34; transform: translateY(-1px); }
+  .btn.ghost { background: transparent; border: 1px solid rgba(198,145,63,0.6); color: #a9762f; }
+  .btn.ghost:hover { background: rgba(198,145,63,0.08); }
   .btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.5;
     flex: 0 0 auto; transition: transform .25s ease; }
   .btn:hover svg { transform: translateX(4px); }
 
-  /* ===== CATEGORY STRIP ===== */
-  .cat-strip { position: relative; z-index: 4; display: flex; gap: 10px;
-    padding: 26px 22px 22px; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch; }
-  .cat-strip::-webkit-scrollbar { display: none; }
-  .cat { position: relative; flex: 0 0 auto; width: 150px; height: 152px; overflow: hidden;
-    display: flex; flex-direction: column; justify-content: flex-end; padding: 16px;
-    scroll-snap-align: start; }
-  .cat img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;
-    transition: transform .5s ease; }
-  .cat::after { content: ""; position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(to top, rgba(12,9,8,0.88) 0%, rgba(12,9,8,0.25) 58%, rgba(12,9,8,0.08) 100%); }
-  .cat:active img { transform: scale(1.05); }
-  .cat-label { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between;
-    gap: 8px; font-size: 11.5px; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 500;
-    color: var(--ivory); }
-  .cat-label svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.4;
-    flex: 0 0 auto; opacity: 0.85; }
+  /* ===== CATEGORY CARDS ===== */
+  .cat-strip { position: relative; z-index: 4; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+    padding: 30px 22px calc(34px + env(safe-area-inset-bottom)); margin-top: 0px; }
+  .cat { position: relative; display: flex; flex-direction: column; background: #fff; }
+  .cat-img { position: relative; aspect-ratio: 1 / 1; overflow: hidden; }
+  .cat-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+  .cat:active .cat-img img { transform: scale(1.05); }
+  .cat-body { padding: 12px 10px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .cat-label { font-size: 11px; letter-spacing: 0.02em; text-transform: uppercase; font-weight: 600;
+    color: #17140F; line-height: 1.25; }
+  .cat-desc { font-size: 10.5px; font-weight: 300; line-height: 1.4; color: rgba(23,20,15,0.55); flex: 1; }
+  .cat-arrow { align-self: flex-end; }
+  .cat-arrow svg { width: 15px; height: 15px; stroke: var(--gold); fill: none; stroke-width: 1.6; }
 
-  .cat-showroom { background: rgba(24,19,16,0.82); backdrop-filter: blur(2px);
-    align-items: center; justify-content: center; gap: 16px; }
-  .cat-showroom::after { display: none; }
-  .play-circle { width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(245,239,228,0.55);
-    display: flex; align-items: center; justify-content: center;
-    transition: border-color .25s ease, background .25s ease; }
-  .cat-showroom:active .play-circle { border-color: var(--gold); background: rgba(191,164,106,0.12); }
-  .play-circle svg { width: 13px; height: 13px; fill: var(--ivory); stroke: none; margin-left: 2px; }
-  .sr-label { position: relative; z-index: 2; text-align: center; font-size: 10.5px; letter-spacing: 0.2em;
-    text-transform: uppercase; color: rgba(245,239,228,0.86); line-height: 1.55; }
+  .play-circle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.8); display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(2px); }
+  .play-circle svg { width: 12px; height: 12px; fill: #C6913F; stroke: none; margin-left: 2px; }
 
   /* ===== MENU OVERLAY ===== */
   .menu { position: fixed; inset: 0; z-index: 100; background: #0c0a09;
@@ -232,11 +210,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="device">
     <section class="hero" data-screen-label="01 Hero (mobile)">
 
-      <div class="hero-bg">
+      <div class="hero-img-side">
         <img src="assets/web/mobile-hero-fond.png" alt="Travertine terrace at sunset overlooking an infinity pool and the sea" loading="eager" fetchpriority="high">
       </div>
-      <div class="hero-grade"></div>
-      <div class="hero-warm"></div>
 
       <!-- TOP BAR -->
       <header class="topbar">
@@ -256,50 +232,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- HERO COPY -->
       <div class="hero-copy">
-        <div class="eyebrow">Natural Stone. Timeless Beauty.</div>
-        <h1 style="width: 348px; height: 84px; font-size: 32px">Crafted by Nature.<br>Designed for<br><span class="em">Exceptional</span> Spaces.</h1>
-        <p class="lede" style="font-size: 13px; margin: 22px 0px 14px">Indonesian natural stone, selected at source and crafted for architecture that lasts.</p>
+        <h1>Crafted by<br>Nature.<br>Designed for<br><span class="em">Exceptional</span><br>Spaces.</h1>
+        <div class="hero-rule"></div>
+        <p class="lede">Indonesian natural stone,<br>selected at source and crafted<br>for architecture that lasts.</p>
         <div class="cta-col">
-          <a class="btn" href="Collections%20Mobile.html" style="width: 253px; font-size: 9px; border-width: 0px; border-style: solid">
+          <a class="btn" href="Collections%20Mobile.html">
             Explore Collections
             <svg viewBox="0 0 24 24"><path d="M4 12 H19 M13 6 l6 6 -6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </a>
-          <a class="btn" href="#showroom" style="width: 253px; font-size: 9px">
+          <a class="btn ghost" href="#showroom">
             Enter Our Virtual Showroom
             <svg viewBox="0 0 24 24"><path d="M4 12 H19 M13 6 l6 6 -6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </a>
         </div>
       </div>
 
-      <!-- CATEGORY STRIP -->
+      <!-- CATEGORY CARDS -->
       <div class="cat-strip">
-        <a class="cat cat-showroom" href="#showroom" data-scroll="showroom">
-          <span class="play-circle"><svg viewBox="0 0 24 24"><path d="M7 5 L19 12 L7 19 Z"></path></svg></span>
-          <span class="sr-label">Virtual<br>Showroom</span>
+        <a class="cat" href="#showroom" data-scroll="showroom">
+          <div class="cat-img">
+            <img src="assets/web/marble-luxury-interiors.jpg" alt="" loading="lazy">
+            <span class="play-circle"><svg viewBox="0 0 24 24"><path d="M7 5 L19 12 L7 19 Z"></path></svg></span>
+          </div>
+          <div class="cat-body">
+            <span class="cat-label">Virtual Showroom</span>
+            <span class="cat-arrow"><svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          </div>
         </a>
         <a class="cat" href="Collections%20Mobile.html#volcanic-stone">
-          <img src="assets/web/volcanic-stone-pool-surrounds.jpg" alt="" loading="lazy">
-          <span class="cat-label">Pool Surround
-            <svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          </span>
+          <div class="cat-img"><img src="assets/web/volcanic-stone-pool-surrounds.jpg" alt="" loading="lazy"></div>
+          <div class="cat-body">
+            <span class="cat-label">Pool Surround</span>
+            <span class="cat-arrow"><svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          </div>
         </a>
         <a class="cat" href="Collections%20Mobile.html#travertine">
-          <img src="assets/web/travertine-terraces.jpg" alt="" loading="lazy">
-          <span class="cat-label">Terrace
-            <svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          </span>
-        </a>
-        <a class="cat" href="Collections%20Mobile.html#limestone">
-          <img src="assets/web/limestone-wall-cladding.jpg" alt="" loading="lazy">
-          <span class="cat-label">Cladding
-            <svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          </span>
-        </a>
-        <a class="cat" href="Collections%20Mobile.html#travertine">
-          <img src="assets/web/travertine-landscaping.jpg" alt="" loading="lazy">
-          <span class="cat-label">Landscaping
-            <svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          </span>
+          <div class="cat-img"><img src="assets/web/travertine-terraces.jpg" alt="" loading="lazy"></div>
+          <div class="cat-body">
+            <span class="cat-label">Terrace Collection</span>
+            <span class="cat-arrow"><svg viewBox="0 0 24 24"><path d="M5 12 H18 M13 7 l5 5 -5 5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          </div>
         </a>
       </div>
 
@@ -402,9 +374,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ft-bottom">
         <span class="ft-copy">© 2026 Rivano Stone. All rights reserved.</span>
         <nav class="ft-legal">
-          <a href="index.html">Privacy Policy</a>
+          <a href="Mobile%20Hero.html">Privacy Policy</a>
           <span class="sep"></span>
-          <a href="index.html">Terms &amp; Conditions</a>
+          <a href="Mobile%20Hero.html">Terms &amp; Conditions</a>
         </nav>
         <div class="ft-follow">
           <span>Follow Us</span>

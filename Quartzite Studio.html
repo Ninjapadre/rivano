@@ -231,6 +231,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     cursor: pointer; transition: border-color .25s ease, background .25s ease, opacity .25s ease; backdrop-filter: blur(6px); }
   .sw-arrow:hover { border-color: var(--gold); color: var(--gold); }
   .sw-arrow.off { opacity: 0.25; pointer-events: none; }
+
+  .tv-dl { position: absolute; z-index: 3; left: 50%; transform: translateX(-50%);
+    bottom: clamp(88px, 11vh, 120px); display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 26px; background: #C07A3E; color: #fff; border: 0; border-radius: 40px;
+    font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500; cursor: pointer; -webkit-appearance: none; appearance: none;
+    transition: background .25s ease; text-decoration: none; }
+  .tv-dl:hover { background: #a96832; color: #fff; }
+  .tv-dl svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.6; }
 </style>
 </head>
 <body>
@@ -297,7 +306,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- REBORD CIRCLE (right) -->
   <div class="finish-dots hidden" id="finishDots">
-    <button class="fdot" data-finish="rebord"><span class="fdot-ring"><span id="dotRebord" style="background-size: cover; background-position: right center"></span></span><span class="fdot-label">Rebord</span></button>
+    <button class="fdot" data-finish="rebord"><span class="fdot-ring"><span id="dotRebord" style="background-size: cover; background-position: right center"></span></span><span class="fdot-label">Edge</span></button>
   </div>
 
   <!-- TEXTURE VIEWER -->
@@ -336,9 +345,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button id="tvMinus" aria-label="Zoom out">−</button>
     </div>
 
+    <a class="tv-dl" id="tvDl" href="#" download>
+      <svg viewBox="0 0 24 24"><path d="M12 4 V15 M7 11 l5 5 5 -5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5 20 H19" stroke-linecap="round"></path></svg>
+      Download the Texture
+    </a>
+
     <div class="tv-presets" id="tvPresets">
       <button data-z="1" class="on">100%</button>
-      <button data-z="2">Rebord</button>
+      <button data-z="2">Edge</button>
     </div>
 
     <div class="tv-fit">

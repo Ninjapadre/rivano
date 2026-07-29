@@ -16,12 +16,12 @@ const PANEL_Y1 = 0.27, PANEL_Y2 = 0.715;            // panel top / bottom (image
 // x1/x2 = horizontal panel bounds as a fraction of the image width.
 // material = dedicated studio image shown in LEVEL 3 (Material View).
 const STONES = [
-  { id: 'travertine', name: 'Travertine', page: 'travertine.html',     x1: 0.1523, x2: 0.2623, material: 'assets/materials/travertine.jpg', cat: 'Warm · Porous · Sculptural', studio3d: 'Travertine Studio.html' },
-  { id: 'marble',     name: 'Marble',     page: 'marble.html',         x1: 0.2719, x2: 0.3801, material: 'assets/materials/marble.jpg',     cat: 'Veined · Luminous · Refined', studio3d: 'Marble Studio.html' },
-  { id: 'limestone',  name: 'Limestone',  page: 'limestone.html',      x1: 0.3896, x2: 0.4973, material: 'assets/materials/limestone.jpg',  cat: 'Soft · Even · Timeless', studio3d: 'Limestone Studio.html' },
-  { id: 'andesite',   name: 'Andesite',   page: 'volcanic-stone.html', x1: 0.5068, x2: 0.6205, material: 'assets/materials/andesite.jpg',   cat: 'Deep · Matte · Grounding', studio3d: 'Andesite Studio.html' },
-  { id: 'quartzite',  name: 'Quartzite',  page: 'quartzite.html',      x1: 0.6300, x2: 0.7329, material: 'assets/materials/quartzite.jpg',  cat: 'Textured · Dense · Resilient', studio3d: 'Quartzite Studio.html' },
-  { id: 'terrazzo',   name: 'Terrazzo',   page: 'terrazzo.html',       x1: 0.7424, x2: 0.8477, material: 'assets/materials/terrazzo.jpg',   cat: 'Speckled · Composite · Expressive', studio3d: 'Terrazzo Studio.html' }
+  { id: 'travertine', name: 'Travertine', page: 'travertine.html',     x1: 0.1523, x2: 0.2623, material: 'assets/materials/travertine.jpg', cat: 'Warm · Porous · Sculptural', studio3d: 'Travertine Studio.html', mobile3d: 'Travertine White Travertine Mobile.html' },
+  { id: 'marble',     name: 'Marble',     page: 'marble.html',         x1: 0.2719, x2: 0.3801, material: 'assets/materials/marble.jpg',     cat: 'Veined · Luminous · Refined', studio3d: 'Marble Studio.html', mobile3d: 'Marble White Calacatta Mobile.html' },
+  { id: 'limestone',  name: 'Limestone',  page: 'limestone.html',      x1: 0.3896, x2: 0.4973, material: 'assets/materials/limestone.jpg',  cat: 'Soft · Even · Timeless', studio3d: 'Limestone Studio.html', mobile3d: 'Limestone Carrara Mobile.html' },
+  { id: 'andesite',   name: 'Andesite',   page: 'volcanic-stone.html', x1: 0.5068, x2: 0.6205, material: 'assets/materials/andesite.jpg',   cat: 'Deep · Matte · Grounding', studio3d: 'Andesite Studio.html', mobile3d: 'Andesite Black Mobile.html' },
+  { id: 'quartzite',  name: 'Quartzite',  page: 'quartzite.html',      x1: 0.6300, x2: 0.7329, material: 'assets/materials/quartzite.jpg',  cat: 'Textured · Dense · Resilient', studio3d: 'Quartzite Studio.html', mobile3d: 'Quartzite Copper Mobile.html' },
+  { id: 'terrazzo',   name: 'Terrazzo',   page: 'Terrazzo Studio.html', x1: 0.7424, x2: 0.8477, material: 'assets/materials/terrazzo.jpg',   cat: 'Speckled · Composite · Expressive', studio3d: 'Terrazzo Studio.html', mobile3d: 'Terrazzo White Mobile.html' }
 ];
 const byId = id => STONES.find(s => s.id === id);
 
@@ -280,7 +280,7 @@ function openMaterial(id) {
   const s = byId(id);
   if (!s) return;
   // stones with a dedicated 3D studio page navigate there instead of the image view
-  if (s.studio3d) { playSound(sndApproach); window.location.href = s.studio3d; return; }
+  if (s.studio3d) { playSound(sndApproach); window.location.href = encodeURI((window.matchMedia('(max-width:880px)').matches && s.mobile3d) ? s.mobile3d : s.studio3d); return; }
   const i = STONES.indexOf(s);
   // make sure the wall underneath is framed on this stone (so closing is seamless)
   if (currentId !== id) {
@@ -392,7 +392,11 @@ function buildIntro() {
   if (!window.gsap) { gsapFallback(); return; }
   // arriving from a Studio page → skip the storefront intro, land on the wall, then focus
   if (/focus=/.test(location.hash)) { gsapFallback(); return; }
-  gsap.set('#viewFront', { autoAlpha: 0, scale: 1.12 });
+  // wait for the storefront image before rolling the camera — avoids a black flash
+  const angleImg = document.getElementById('viewAngle');
+  const start = () => {
+    if (arrived) return;
+    gsap.set('#viewFront', { autoAlpha: 0, scale: 1.12 });
   gsap.set('#viewAngle', { transformOrigin: '57% 52%' });
   introTl = gsap.timeline({ delay: 0.5, onComplete: finishIntro });
   // 1 · headline drifts away
@@ -404,6 +408,13 @@ function buildIntro() {
   // 4 · chrome rises once we are inside, facing the wall
   introTl.to(['#vignette', '#topbar'], { autoAlpha: 1, duration: 0.8, ease: 'power2.out' }, '-=0.55');
   introTl.to('#panels', { autoAlpha: 1, duration: 0.8, ease: 'power2.out' }, '<');
+  };
+  if (angleImg && !angleImg.complete && angleImg.decode) {
+    Promise.race([
+      angleImg.decode().catch(() => {}),
+      new Promise(r => setTimeout(r, 2500)) // never wait more than 2.5s
+    ]).then(start);
+  } else { start(); }
 }
 
 function gsapFallback() {
@@ -451,7 +462,7 @@ function buildMobileShowroom() {
   STONES.forEach(s => {
     const sw = SWATCH[s.id] || s.material;
     const nx = NICHE_X[s.id] != null ? NICHE_X[s.id] : 50;
-    const target = s.studio3d || s.page;
+    const target = encodeURI(s.mobile3d || s.studio3d || s.page);
     rows +=
       '<a class="msr-row" href="' + target + '" aria-label="Explore ' + s.name + '">' +
         '<div class="msr-niche"><img src="' + wall + '" alt="" style="object-position:' + nx + '% center"></div>' +
@@ -542,7 +553,7 @@ function forcedView() {
 // Skip the entrance when coming back from a studio (referrer check + #enter hash).
 function skipMobileEntrance() {
   const ref = document.referrer || '';
-  if (ref.includes('Studio.html')) return true;
+  if (/Studio\.html|Mobile\.html/i.test(ref)) return true;
   return (location.hash || '').replace('#', '') === 'enter';
 }
 function boot() {

@@ -144,6 +144,8 @@
     const im = new Image();
     im.onload = () => {
       natW = im.naturalWidth; natH = im.naturalHeight; tvImg.src = src;
+      var tvDl = document.getElementById('tvDl');
+      if (tvDl) { tvDl.href = src; tvDl.setAttribute('download', 'Rivano - ' + ((CFG.name || '') + ' ' + (($('title') && $('title').textContent) || '')).trim() + '.jpg'); }
       tvImg.style.width = natW + 'px'; tvImg.style.height = natH + 'px';
       fitScale = cover ? coverFit() : containFit(); disp = fitScale; off.x = 0; off.y = 0; applyTransform();
       if (gsap && anim) gsap.fromTo(tvImg, { opacity: 0 }, { opacity: 1, duration: 0.55, ease: 'power2.out' }); else tvImg.style.opacity = '1';
@@ -201,7 +203,7 @@
     // Request Sample button (desktop: solid pill under View Texture · portrait: outlined)
     const a = document.createElement('a');
     a.className = 'studio-sample-link';
-    a.href = 'Request%20Sample%20Mobile.html?material=' + encodeURIComponent(CFG.name || '');
+    a.href = (window.matchMedia('(max-width:880px)').matches ? 'Request%20Sample%20Mobile.html' : 'sample.html') + '?material=' + encodeURIComponent(CFG.name || '');
     a.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">' +
       '<rect x="4" y="4" width="12" height="12" rx="1"></rect><rect x="9" y="9" width="11" height="11" rx="1"></rect></svg>' +
       '<span>Request Sample</span>';

@@ -1,0 +1,11 @@
+{
+ "Canvas.dc.html": [
+  "./support.js"
+ ],
+ "Collections Mobile.html": [
+  "' + waLink(stone, a) + '",
+  "' + a.img + '",
+  "' + stone.hero + '",
+  "' + CATALOGUE + '"
+ ]
+}
